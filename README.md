@@ -1,5 +1,7 @@
 # SVWBDB
 SVWBDB is basically a faster version of the [Official Card Library][1] for Shadowverse: Worlds Beyond.
+I made this mostly because I wanted a faster card search and the official / existing ones feels too sluggish.
+
 This is mostly done by preloading the card list and executing the search queries locally in the browser.
 
 ## Disclaimer
