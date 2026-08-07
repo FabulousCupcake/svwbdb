@@ -1,4 +1,4 @@
-name: Update card data
+name: Update game data
 
 on:
   schedule:
@@ -9,11 +9,11 @@ permissions:
   contents: write
 
 concurrency:
-  group: update-card-data
+  group: update-game-data
   cancel-in-progress: false
 
 jobs:
-  update-cards:
+  update-data:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,15 +22,19 @@ jobs:
         with:
           ref: master
 
-      - name: Download and compile card data
+      - name: Download and compile game data
         run: |
           data/cards/01-download.sh
           data/cards/02-compile.sh
+          data/keywords/01-download.sh
+          data/keywords/02-compile.sh
+          data/traits/01-download.sh
+          data/traits/02-compile.sh
 
-      - name: Commit updated card data
+      - name: Commit updated game data
         run: |
-          if [[ -z "$(git status --porcelain -- data/cards.json)" ]]; then
-              echo "Card data is unchanged."
+          if [[ -z "$(git status --porcelain -- data/cards.json data/keywords.json data/traits.json)" ]]; then
+              echo "Game data is unchanged."
               exit 0
           fi
 
@@ -38,6 +42,6 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/cards.json
-          git commit -m "Update card data ($TIMESTAMP)"
+          git add data/cards.json data/keywords.json data/traits.json
+          git commit -m "Update game data ($TIMESTAMP)"
           git push origin HEAD:master
