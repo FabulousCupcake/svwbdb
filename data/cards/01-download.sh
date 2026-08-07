@@ -6,6 +6,7 @@ BASE_URL="https://shadowverse-wb.com/web/CardList/cardList"
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 OUTPUT_DIR="${1:-$SCRIPT_DIR/json}"
 INCLUDE_TOKEN=1
+LANGUAGE="en"
 OFFSET=0
 TOTAL_COUNT=1
 
@@ -20,6 +21,7 @@ while (( OFFSET < TOTAL_COUNT )); do
         --fail \
         --silent \
         --show-error \
+        --header "Lang: $LANGUAGE" \
         --get \
         --data-urlencode "include_token=$INCLUDE_TOKEN" \
         --data-urlencode "offset=$OFFSET" \

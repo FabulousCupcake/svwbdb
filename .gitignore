@@ -1,1 +1,3 @@
 data/cards/json/
+dist/
+node_modules/

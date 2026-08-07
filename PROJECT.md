@@ -2,7 +2,7 @@
 
 ## Vision
 
-Build a fast, static Shadowverse: Worlds Beyond card browser inspired by the
+Build `SVWBDB`, a fast, static Shadowverse: Worlds Beyond card browser inspired by the
 [official card list](https://shadowverse-wb.com/en/deck/cardslist/), with a more
 responsive and expressive search experience.
 
@@ -82,16 +82,18 @@ loading every card image.
 The initial rendering strategy will favor persistent DOM nodes:
 
 - Create each card element once and retain it by card ID.
-- Filter by changing each element's `hidden` state instead of recreating it.
-- Move existing elements if result ordering changes.
+- Mount only the small visible result set and move existing elements when the
+  query or result ordering changes.
 - Do not replace image elements or repeatedly assign their `src` values.
+- Assign an image's `src` only when that card first becomes visible.
 - Use native `loading="lazy"` and `decoding="async"` on card images.
 - Give images explicit dimensions to avoid layout shifts.
 - Use `content-visibility: auto` on card containers where appropriate.
 
-This keeps loaded and decoded images alive while allowing the CSS layout to
-collapse non-matching cards. Virtualization should only be considered if this
-approach is observably slow; it is not part of the initial implementation.
+This keeps loaded and decoded images alive without leaving hundreds of cards in
+the document or requesting every image. Virtualization should only be
+considered if this approach is observably slow; it is not part of the initial
+implementation.
 
 ## Card images
 
@@ -102,8 +104,8 @@ hash supplied in the card data:
 https://shadowverse-wb.com/uploads/card_image/{resource-language}/card/{card_image_hash}.png
 ```
 
-The official resource-language mapping currently includes `jpn` for Japanese
-and `eng` for English. Cross-origin image requests using GitHub Pages- and
+SVWBDB uses English card data and the official `eng` resource-language path.
+There is no language toggle. Cross-origin image requests using GitHub Pages- and
 Cloudflare Pages-style referrers were successfully served as image data when
 checked on 2026-08-07.
 

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="SVWBDB is a fast, local-first card database for Shadowverse: Worlds Beyond."
+    />
+    <title>SVWBDB — Card Database</title>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="masthead">
+        <div class="brand-row">
+          <div class="brand-lockup" aria-label="SVWBDB">
+            <span class="brand-mark" aria-hidden="true">DB</span>
+            <div>
+              <p class="eyebrow">SHADOWVERSE: WORLDS BEYOND / CARD DATABASE</p>
+              <h1>SVWBDB</h1>
+            </div>
+          </div>
+          <div class="local-badge">
+            <span class="local-badge__light" aria-hidden="true"></span>
+            <span id="data-state">Loading local card data</span>
+          </div>
+        </div>
+
+        <form class="search-form" role="search" id="search-form">
+          <label class="visually-hidden" for="card-search">Search cards</label>
+          <span class="search-prompt" aria-hidden="true">⌕</span>
+          <input
+            id="card-search"
+            name="query"
+            type="search"
+            placeholder="Type a card name, dragon legendary cost 5, rotation spell…"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+            autofocus
+          />
+          <button class="clear-button" id="clear-search" type="button" hidden>
+            CLEAR
+          </button>
+        </form>
+
+        <div class="search-meta">
+          <p class="query-hints" aria-label="Example filters">
+            <span>CLASS</span>
+            <span>FORMAT</span>
+            <span>TYPE</span>
+            <span>RARITY</span>
+            <span>COST</span>
+            <span>KEYWORD</span>
+          </p>
+          <p class="result-status" id="result-status" aria-live="polite">
+            Preparing index…
+          </p>
+        </div>
+      </header>
+
+      <main class="workspace" id="workspace">
+        <section class="results-panel" id="results-panel" aria-label="Card results">
+          <div class="loading-state" id="loading-state">
+            <span class="loading-state__line"></span>
+            <span>Building the local index</span>
+          </div>
+          <div class="result-grid" id="result-grid"></div>
+          <div class="empty-state" id="empty-state" hidden>
+            <p class="empty-state__code">NO MATCH</p>
+            <h2>No cards found.</h2>
+            <p>Remove a condition or try a different spelling.</p>
+          </div>
+        </section>
+
+        <aside class="detail-panel" id="detail-panel" aria-label="Card details" hidden>
+          <div class="detail-visual">
+            <div class="detail-image-frame">
+              <img id="detail-image" width="530" height="687" alt="" />
+            </div>
+            <div class="art-switch" id="art-switch" hidden>
+              <button type="button" data-art-mode="base" class="is-active">BASE</button>
+              <button type="button" data-art-mode="evolved">EVOLVED</button>
+            </div>
+          </div>
+
+          <div class="detail-copy">
+            <div class="detail-heading">
+              <div>
+                <p class="detail-overline" id="detail-overline"></p>
+                <h2 id="detail-name"></h2>
+              </div>
+              <button class="detail-close" id="detail-close" type="button" aria-label="Close card details">
+                ×
+              </button>
+            </div>
+
+            <div class="detail-tags" id="detail-tags"></div>
+            <div class="stat-row" id="stat-row"></div>
+
+            <section class="detail-section detail-section--ability">
+              <p class="detail-label">ABILITY</p>
+              <p class="detail-text" id="detail-skill"></p>
+            </section>
+
+            <section class="detail-section detail-section--flavour">
+              <p class="detail-label">FLAVOUR</p>
+              <p class="detail-text detail-text--flavour" id="detail-flavour"></p>
+            </section>
+
+            <dl class="detail-credits" id="detail-credits"></dl>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
