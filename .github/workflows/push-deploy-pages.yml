@@ -1,0 +1,54 @@
+name: Deploy static site
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-publish:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out master
+        uses: actions/checkout@v7
+        with:
+          ref: master
+          fetch-depth: 1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Replace pages branch
+        run: |
+          touch dist/.nojekyll
+
+          PUBLISH_INDEX="$RUNNER_TEMP/pages-index"
+          rm -f "$PUBLISH_INDEX"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          GIT_INDEX_FILE="$PUBLISH_INDEX" git --work-tree=dist add --all
+          TREE="$(GIT_INDEX_FILE="$PUBLISH_INDEX" git write-tree)"
+          COMMIT="$(printf 'Deploy %s\n' "$GITHUB_SHA" | git commit-tree "$TREE")"
+
+          git push --force origin "$COMMIT:refs/heads/pages"
