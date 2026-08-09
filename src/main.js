@@ -1897,11 +1897,7 @@ function createMultiDetailCard(card) {
   );
 
   credits.className = "detail-credits";
-  credits.append(
-    ...createCredit("CARD ID", card.id),
-    ...createCredit("ILLUSTRATOR", card.common.illustrator || "—"),
-    ...createCredit("CV", card.common.cv || "—"),
-  );
+  credits.append(...createCredits(card));
   copy.append(heading, tags, ability, flavour, credits);
   article.append(visualButton, copy);
   return article;
@@ -1968,11 +1964,7 @@ function renderSelectedCard() {
     ...(card.common.is_token ? [createTag("Token")] : []),
   );
 
-  ELEMENTS.detailCredits.replaceChildren(
-    ...createCredit("CARD ID", card.id),
-    ...createCredit("ILLUSTRATOR", card.common.illustrator || "—"),
-    ...createCredit("CV", card.common.cv || "—"),
-  );
+  ELEMENTS.detailCredits.replaceChildren(...createCredits(card));
 }
 
 function createTag(label) {
@@ -1987,6 +1979,31 @@ function createCredit(labelText, valueText) {
   label.textContent = labelText;
   value.textContent = valueText;
   return [label, value];
+}
+
+function createVoiceCredit(card) {
+  const [japaneseLabel, japaneseValue] = createCredit("CV", card.common.cv_jp || "—");
+  const [englishLabel, englishValue] = createCredit("CV (EN)", card.common.cv || "—");
+
+  japaneseValue.lang = "ja";
+  englishValue.lang = "en";
+
+  return [japaneseLabel, japaneseValue, englishLabel, englishValue];
+}
+
+function createCredits(card) {
+  const mainCredits = document.createElement("div");
+  const cardIdentity = document.createElement("div");
+
+  mainCredits.className = "detail-credit-column";
+  cardIdentity.className = "detail-credit-column detail-credit-column--identity";
+  mainCredits.append(
+    ...createCredit("ILLUSTRATOR", card.common.illustrator || "—"),
+    ...createVoiceCredit(card),
+  );
+  cardIdentity.append(...createCredit("CARD ID", card.id));
+
+  return [mainCredits, cardIdentity];
 }
 
 function selectCard(cardId, source) {
