@@ -198,6 +198,8 @@ const ELEMENTS = {
   detailSkill: document.querySelector("#detail-skill"),
   detailFlavour: document.querySelector("#detail-flavour"),
   detailCredits: document.querySelector("#detail-credits"),
+  detailRelated: document.querySelector("#detail-related"),
+  detailRelatedCards: document.querySelector("#detail-related-cards"),
 };
 
 const STATE = {
@@ -254,10 +256,18 @@ ELEMENTS.qualifierAutocompleteList.addEventListener("click", (event) => {
 });
 
 ELEMENTS.multiDetailPanel.addEventListener("click", (event) => {
-  const cardButton = event.target.closest("[data-multi-card-id]");
+  const cardButton = event.target.closest("[data-multi-card-id], [data-related-card-id]");
 
   if (cardButton) {
-    selectCard(Number(cardButton.dataset.multiCardId), "click");
+    selectCard(Number(cardButton.dataset.multiCardId ?? cardButton.dataset.relatedCardId), "click");
+  }
+});
+
+ELEMENTS.detailPanel.addEventListener("click", (event) => {
+  const cardButton = event.target.closest("[data-related-card-id]");
+
+  if (cardButton) {
+    selectCard(Number(cardButton.dataset.relatedCardId), "click");
   }
 });
 
@@ -272,7 +282,9 @@ ELEMENTS.resultGrid.addEventListener("click", (event) => {
 });
 
 document.addEventListener("click", (event) => {
-  const cardButton = event.target.closest("[data-card-id], [data-multi-card-id]");
+  const cardButton = event.target.closest(
+    "[data-card-id], [data-multi-card-id], [data-related-card-id]",
+  );
 
   if (
     STATE.selectedId !== null &&
@@ -1724,21 +1736,14 @@ function scoreCard(card, terms) {
 function render() {
   const selectedCard = STATE.cards.find((card) => card.id === STATE.selectedId) ?? null;
   const hasDetail = selectedCard !== null;
-  const relatedCards = selectedCard
-    ? (selectedCard.raw.related_card_ids ?? [])
-        .map((cardId) => STATE.cards.find((card) => card.id === cardId))
-        .filter((card) => card && card.id !== selectedCard.id)
-    : [];
-  const selectedIsOnlyMatch =
-    hasDetail && STATE.matches.length === 1 && STATE.matches[0].id === selectedCard.id;
-  const isSingleResult = selectedIsOnlyMatch && relatedCards.length === 0;
+  const relatedCards = selectedCard ? relatedTokenCards(selectedCard) : [];
   const showsMultipleDetails =
     !hasDetail && STATE.matches.length === 2 && MULTI_DETAIL_VIEW.matches;
+  const hidesSoleResultList = hasDetail && STATE.matches.length === 1;
 
   ELEMENTS.workspace.classList.toggle("has-detail", hasDetail);
-  ELEMENTS.workspace.classList.toggle("single-result", isSingleResult);
   ELEMENTS.workspace.classList.toggle("has-multi-detail", showsMultipleDetails);
-  ELEMENTS.resultsPanel.hidden = showsMultipleDetails;
+  ELEMENTS.resultsPanel.hidden = showsMultipleDetails || hidesSoleResultList;
   ELEMENTS.multiDetailPanel.hidden = !showsMultipleDetails;
   ELEMENTS.detailPanel.hidden = !hasDetail;
 
@@ -1753,22 +1758,14 @@ function render() {
   ELEMENTS.multiDetailPanel.replaceChildren();
 
   const isFiltering = Boolean(ELEMENTS.searchInput.value.trim());
-  let resultLayout = isSingleResult
-    ? { limit: 0, columns: 1, cardWidth: MIN_CARD_WIDTH }
-    : calculateResultLayout();
+  let resultLayout = calculateResultLayout();
 
-  if (!isSingleResult && isFiltering && STATE.matches.length > resultLayout.limit) {
+  if (isFiltering && STATE.matches.length > resultLayout.limit) {
     resultLayout = calculateResultLayout(44);
   }
 
   const resultLimit = resultLayout.limit;
-  const relatedCardIds = new Set(relatedCards.map((card) => card.id));
-  const orderedMatches = hasDetail
-    ? [
-        ...relatedCards,
-        ...STATE.matches.filter((card) => !relatedCardIds.has(card.id)),
-      ]
-    : STATE.matches;
+  const orderedMatches = STATE.matches;
   const visibleCards = orderedMatches.slice(0, resultLimit);
   const showsTruncatedFilterCount =
     isFiltering &&
@@ -1819,7 +1816,7 @@ function render() {
   }
 
   if (hasDetail) {
-    renderSelectedCard();
+    renderSelectedCard(selectedCard, relatedCards);
   }
 }
 
@@ -1849,6 +1846,7 @@ function createMultiDetailCard(card) {
   const imageFrame = document.createElement("div");
   const [baseImage, evolvedImage] = createArtworkImages(card);
   const copy = document.createElement("div");
+  const content = document.createElement("div");
   const heading = document.createElement("div");
   const headingText = document.createElement("div");
   const overline = document.createElement("p");
@@ -1872,6 +1870,7 @@ function createMultiDetailCard(card) {
   visualButton.append(imageFrame);
 
   copy.className = "detail-copy";
+  content.className = "detail-copy-content";
   heading.className = "detail-heading";
   overline.className = "detail-overline";
   overline.textContent = detailOverline(card);
@@ -1887,7 +1886,8 @@ function createMultiDetailCard(card) {
 
   credits.className = "detail-credits";
   credits.append(...createCredits(card));
-  copy.append(heading, tags, ability, flavour, credits);
+  content.append(tags, ability, flavour, credits);
+  copy.append(heading, content, createRelatedCardList(relatedTokenCards(card)));
   article.append(visualButton, copy);
   return article;
 }
@@ -1909,13 +1909,7 @@ function createMultiDetailSection(valueText, isFlavour = false, highlightsKeywor
   return section;
 }
 
-function renderSelectedCard() {
-  const card = STATE.cards.find((candidate) => candidate.id === STATE.selectedId);
-
-  if (!card) {
-    return;
-  }
-
+function renderSelectedCard(card, relatedCards) {
   const evolved = evolvedSide(card);
   const flavourText = cleanGameText(card.common.flavour_text) || "No flavour text.";
 
@@ -1949,6 +1943,8 @@ function renderSelectedCard() {
   );
 
   ELEMENTS.detailCredits.replaceChildren(...createCredits(card));
+  renderRelatedCards(ELEMENTS.detailRelatedCards, relatedCards);
+  ELEMENTS.detailRelated.hidden = relatedCards.length === 0;
 }
 
 function createTag(label) {
@@ -1996,6 +1992,55 @@ function createCredits(card) {
   cardIdentity.append(...createCredit("CARD ID", card.id));
 
   return [mainCredits, cardIdentity];
+}
+
+function relatedTokenCards(card) {
+  const seen = new Set([card.id]);
+
+  return (card.raw.related_card_ids ?? [])
+    .map((cardId) => STATE.cards.find((candidate) => candidate.id === cardId))
+    .filter((relatedCard) => {
+      if (!relatedCard?.common.is_token || seen.has(relatedCard.id)) {
+        return false;
+      }
+
+      seen.add(relatedCard.id);
+      return true;
+    });
+}
+
+function createRelatedCardList(cards) {
+  const wrapper = document.createElement("div");
+  const heading = document.createElement("p");
+  const list = document.createElement("div");
+
+  wrapper.className = "detail-related";
+  wrapper.hidden = cards.length === 0;
+  heading.className = "detail-related-heading";
+  heading.textContent = "RELATED CARDS";
+  list.className = "detail-related-cards";
+  list.setAttribute("aria-label", "Related token cards");
+  renderRelatedCards(list, cards);
+  wrapper.append(heading, list);
+  return wrapper;
+}
+
+function renderRelatedCards(list, cards) {
+  const cardNodes = cards.map((card) => {
+    const button = document.createElement("button");
+    const [image] = createArtworkImages(card, false, false);
+
+    button.className = "detail-related-card";
+    button.type = "button";
+    button.dataset.relatedCardId = String(card.id);
+    button.title = card.common.name;
+    button.setAttribute("aria-label", `View related token ${card.common.name}`);
+    button.style.setProperty("--card-accent", card.classInfo.color);
+    button.append(image);
+    return button;
+  });
+
+  list.replaceChildren(...cardNodes);
 }
 
 function selectCard(cardId, source) {
