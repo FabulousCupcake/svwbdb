@@ -105,14 +105,12 @@ input:focus-visible {
 
 .search-meta p,
 .detail-heading h2,
-.detail-overline,
 .detail-text,
 .empty-state p,
 .empty-state h2 {
   margin: 0;
 }
 
-.detail-overline,
 .query-feedback,
 .result-status,
 .clear-button,
@@ -506,7 +504,7 @@ input:focus-visible {
   display: flex;
   min-width: 0;
   align-items: flex-start;
-  gap: 24px;
+  gap: min(10em, 10vw);
 }
 
 .filter-annotations {
@@ -888,6 +886,7 @@ input:focus-visible {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-rows: auto minmax(0, 1fr);
   gap: clamp(12px, 1.5vw, 24px);
+  row-gap: 12px;
 }
 
 .detail-copy > .detail-heading {
@@ -955,15 +954,61 @@ input:focus-visible {
 }
 
 .detail-heading {
-  align-items: flex-start;
+  position: relative;
+  align-items: center;
   gap: 16px;
   padding-bottom: 11px;
-  border-bottom: 1px solid var(--line);
 }
 
-.detail-overline {
-  margin-bottom: 8px;
-  color: var(--class-accent);
+.detail-heading::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: linear-gradient(to right, var(--line) 0%, var(--line) 50%, transparent 90%);
+}
+
+.detail-heading-icons {
+  display: flex;
+  min-width: 0;
+  margin-left: auto;
+  align-items: center;
+  gap: 1.8em;
+  flex: 0 0 auto;
+}
+
+.detail-heading-icons.has-no-format {
+  margin-right: 0.5em;
+}
+
+.detail-heading-icon {
+  display: block;
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  transform: translateY(-6px) scale(1.5);
+  transform-origin: center;
+}
+
+.detail-heading-icon--class {
+  width: 32px;
+  height: 32px;
+}
+
+.detail-heading-icon--class-0,
+.detail-heading-icon--class-2 {
+  transform: translateY(-6px) scale(1.4);
+}
+
+.detail-heading-icon--class-1 {
+  transform: translateY(-4px) scale(1.5);
+}
+
+.detail-heading-icon--format {
+  width: 34px;
+  height: 34px;
 }
 
 .detail-heading h2 {
@@ -1038,7 +1083,7 @@ input:focus-visible {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
   padding-top: 9px;
-  margin: 0;
+  margin: auto 0 0;
   border-top: 1px solid var(--line);
   font-size: 8px;
 }

@@ -2,9 +2,29 @@ import CARD_DATA_URL from "../data/cards.json?url";
 import KEYWORD_DATA_URL from "../data/keywords.json?url";
 import TRAIT_DATA_URL from "../data/traits.json?url";
 import ALIAS_DATA_URL from "../data/aliases.json?url";
+import ROTATION_FORMAT_ICON_URL from "./assets/format_rotation.svg?url";
+import UNLIMITED_FORMAT_ICON_URL from "./assets/format_unlimited.svg?url";
 import "./styles.css";
 
 const IMAGE_ROOT = "https://shadowverse-wb.com/uploads/card_image/eng/card";
+const CLASS_ICON_ROOT = "https://shadowverse-wb.com/assets/images/common/common/class";
+const CLASS_ICON_NAMES = {
+  0: "neutral",
+  1: "elf",
+  2: "royal",
+  3: "witch",
+  4: "dragon",
+  5: "nightmare",
+  6: "bishop",
+  7: "nemesis",
+};
+const HEADING_ICON_URLS = [
+  ...Object.values(CLASS_ICON_NAMES).map(
+    (classIconName) => `${CLASS_ICON_ROOT}/class_${classIconName}.svg`,
+  ),
+  ROTATION_FORMAT_ICON_URL,
+  UNLIMITED_FORMAT_ICON_URL,
+];
 const MIN_CARD_WIDTH = 200;
 const CARD_ASPECT_RATIO = 687 / 530;
 const MULTI_DETAIL_VIEW = window.matchMedia("(min-height: 1180px)");
@@ -218,8 +238,8 @@ const ELEMENTS = {
   detailImageFrame: document.querySelector("#detail-image-frame"),
   detailBaseImage: document.querySelector("#detail-base-image"),
   detailEvolvedImage: document.querySelector("#detail-evolved-image"),
-  detailOverline: document.querySelector("#detail-overline"),
   detailName: document.querySelector("#detail-name"),
+  detailHeadingIcons: document.querySelector("#detail-heading-icons"),
   detailTags: document.querySelector("#detail-tags"),
   detailSkill: document.querySelector("#detail-skill"),
   detailFlavour: document.querySelector("#detail-flavour"),
@@ -244,6 +264,14 @@ const STATE = {
 };
 let queryExampleQueue = [];
 let previousQueryExampleTemplate = null;
+
+for (const iconUrl of HEADING_ICON_URLS) {
+  const icon = new Image();
+  icon.loading = "eager";
+  icon.decoding = "async";
+  icon.fetchPriority = "high";
+  icon.src = iconUrl;
+}
 
 ELEMENTS.searchForm.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -1903,7 +1931,7 @@ function createMultiDetailCard(card) {
   const content = document.createElement("div");
   const heading = document.createElement("div");
   const headingText = document.createElement("div");
-  const overline = document.createElement("p");
+  const headingIcons = document.createElement("div");
   const name = document.createElement("h2");
   const tags = document.createElement("div");
   const ability = createMultiDetailSection(card.skillText, false, true);
@@ -1926,11 +1954,12 @@ function createMultiDetailCard(card) {
   copy.className = "detail-copy";
   content.className = "detail-copy-content";
   heading.className = "detail-heading";
-  overline.className = "detail-overline";
-  overline.textContent = detailOverline(card);
+  headingIcons.className = "detail-heading-icons";
+  headingIcons.classList.toggle("has-no-format", Boolean(card.common.is_token));
   name.textContent = card.common.name;
-  headingText.append(overline, name);
-  heading.append(headingText);
+  headingText.append(name);
+  headingIcons.append(...createDetailHeadingIcons(card));
+  heading.append(headingText, headingIcons);
 
   tags.className = "detail-tags";
   tags.append(
@@ -1986,13 +2015,21 @@ function renderSelectedCard(card, relatedCards) {
     ELEMENTS.detailEvolvedImage.removeAttribute("src");
   }
 
-  ELEMENTS.detailOverline.textContent = detailOverline(card);
   ELEMENTS.detailName.textContent = card.common.name;
+  ELEMENTS.detailHeadingIcons.classList.toggle(
+    "has-no-format",
+    Boolean(card.common.is_token),
+  );
+  ELEMENTS.detailHeadingIcons.replaceChildren(...createDetailHeadingIcons(card));
   renderHighlightedGameText(ELEMENTS.detailSkill, card.skillText, "No ability text.");
   ELEMENTS.detailFlavour.textContent = flavourText;
 
   ELEMENTS.detailTags.replaceChildren(
     createTag(card.typeLabel),
+    ...(card.common.tribes ?? [])
+      .map((trait) => TRAIT_INFO.get(trait))
+      .filter(Boolean)
+      .map(createTag),
     ...(card.common.is_token ? [createTag("Token")] : []),
   );
 
@@ -2025,11 +2062,36 @@ function createVoiceCredit(card) {
   return [japaneseLabel, japaneseValue, englishLabel, englishValue];
 }
 
-function detailOverline(card) {
-  return [
-    card.classInfo.label,
-    ...(card.common.is_include_rotation ? ["Rotation"] : []),
-  ].join(" / ");
+function createDetailHeadingIcons(card) {
+  const classIcon = document.createElement("img");
+  const classIconName = CLASS_ICON_NAMES[card.common.class] ?? CLASS_ICON_NAMES[0];
+
+  classIcon.className = `detail-heading-icon detail-heading-icon--class detail-heading-icon--class-${card.common.class}`;
+  classIcon.src = `${CLASS_ICON_ROOT}/class_${classIconName}.svg`;
+  classIcon.alt = card.classInfo.label;
+  classIcon.title = card.classInfo.label;
+  classIcon.loading = "eager";
+  classIcon.decoding = "async";
+  classIcon.fetchPriority = "high";
+
+  if (card.common.is_token) {
+    return [classIcon];
+  }
+
+  const formatIcon = document.createElement("img");
+  const formatLabel = card.common.is_include_rotation ? "Rotation" : "Unlimited";
+
+  formatIcon.className = "detail-heading-icon detail-heading-icon--format";
+  formatIcon.src = card.common.is_include_rotation
+    ? ROTATION_FORMAT_ICON_URL
+    : UNLIMITED_FORMAT_ICON_URL;
+  formatIcon.alt = formatLabel;
+  formatIcon.title = formatLabel;
+  formatIcon.loading = "eager";
+  formatIcon.decoding = "async";
+  formatIcon.fetchPriority = "high";
+
+  return [classIcon, formatIcon];
 }
 
 function createCredits(card) {
