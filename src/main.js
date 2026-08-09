@@ -179,6 +179,7 @@ const ELEMENTS = {
   searchAssistStatus: document.querySelector("#search-assist-status"),
   clearSearch: document.querySelector("#clear-search"),
   queryFeedback: document.querySelector("#query-feedback"),
+  filterAnnotations: document.querySelector("#filter-annotations"),
   resultStatus: document.querySelector("#result-status"),
   workspace: document.querySelector("#workspace"),
   resultsPanel: document.querySelector("#results-panel"),
@@ -1009,7 +1010,7 @@ function createRecognitionSpan(text) {
 }
 
 function renderQueryReadout(query, annotations) {
-  const fragment = document.createDocumentFragment();
+  const annotationFragment = document.createDocumentFragment();
   const legend = document.createElement("span");
   const primaryLegend = document.createElement("span");
   const secondaryLegend = document.createElement("span");
@@ -1049,12 +1050,9 @@ function renderQueryReadout(query, annotations) {
   }
 
   legend.append(primaryLegend, secondaryLegend, numericLegend);
-  fragment.append(legend);
+  let annotationCount = 0;
 
-  if (!query.trim()) {
-    ELEMENTS.queryFeedback.classList.add("is-hints");
-  } else {
-    ELEMENTS.queryFeedback.classList.remove("is-hints");
+  if (query.trim()) {
     const seen = new Set();
 
     for (const annotation of annotations) {
@@ -1073,11 +1071,14 @@ function renderQueryReadout(query, annotations) {
       field.textContent = `${annotation.fieldLabel.toLocaleLowerCase()}:`;
       value.textContent = annotation.valueLabel.toLocaleLowerCase();
       row.append(field, value);
-      fragment.append(row);
+      annotationFragment.append(row);
+      annotationCount += 1;
     }
   }
 
-  ELEMENTS.queryFeedback.replaceChildren(fragment);
+  ELEMENTS.queryFeedback.replaceChildren(legend);
+  ELEMENTS.filterAnnotations.replaceChildren(annotationFragment);
+  ELEMENTS.filterAnnotations.hidden = annotationCount === 0;
 }
 
 function describeCriteria(query) {
@@ -1726,9 +1727,11 @@ function render() {
   const relatedCards = selectedCard
     ? (selectedCard.raw.related_card_ids ?? [])
         .map((cardId) => STATE.cards.find((card) => card.id === cardId))
-        .filter(Boolean)
+        .filter((card) => card && card.id !== selectedCard.id)
     : [];
-  const isSingleResult = hasDetail && STATE.matches.length === 1 && relatedCards.length === 0;
+  const selectedIsOnlyMatch =
+    hasDetail && STATE.matches.length === 1 && STATE.matches[0].id === selectedCard.id;
+  const isSingleResult = selectedIsOnlyMatch && relatedCards.length === 0;
   const showsMultipleDetails =
     !hasDetail && STATE.matches.length === 2 && MULTI_DETAIL_VIEW.matches;
 
@@ -1763,9 +1766,7 @@ function render() {
   const orderedMatches = hasDetail
     ? [
         ...relatedCards,
-        ...STATE.matches.filter(
-          (card) => card.id !== selectedCard.id && !relatedCardIds.has(card.id),
-        ),
+        ...STATE.matches.filter((card) => !relatedCardIds.has(card.id)),
       ]
     : STATE.matches;
   const visibleCards = orderedMatches.slice(0, resultLimit);

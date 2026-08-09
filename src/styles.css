@@ -459,17 +459,22 @@ input:focus-visible {
 }
 
 .query-feedback {
-  display: flex;
   min-width: 0;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
   overflow: hidden;
   color: #697682;
 }
 
-.query-feedback.is-hints {
+.query-readout,
+.filter-annotations {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 0;
+}
+
+.filter-annotations {
+  overflow: hidden;
 }
 
 .query-qualifier-legend {

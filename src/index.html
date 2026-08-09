@@ -58,7 +58,15 @@
         </form>
 
         <div class="search-meta">
-          <div class="query-feedback is-hints" id="query-feedback" aria-live="polite"></div>
+          <div class="query-readout">
+            <div class="query-feedback" id="query-feedback"></div>
+            <div
+              class="filter-annotations"
+              id="filter-annotations"
+              aria-live="polite"
+              hidden
+            ></div>
+          </div>
           <p class="result-status" id="result-status" aria-live="polite">
             Preparing index…
           </p>
