@@ -38,6 +38,17 @@ const CLASS_INFO = {
   7: { label: "Portalcraft", color: "#61d5d0" },
 };
 
+const CLASS_QUALIFIER_COLORS = {
+  0: "#858585",
+  1: "#439159",
+  2: "#797b1b",
+  3: "#535fa3",
+  4: "#a05a12",
+  5: "#8d1e41",
+  6: "#b0a98d",
+  7: "#5bcce3",
+};
+
 const TYPE_INFO = {
   1: "Follower",
   2: "Amulet",
@@ -50,6 +61,13 @@ const RARITY_INFO = {
   2: "Silver",
   3: "Gold",
   4: "Legendary",
+};
+
+const RARITY_QUALIFIER_COLORS = {
+  1: "#b87333",
+  2: "#c0c0c0",
+  3: "#e3b356",
+  4: "#c66ce3",
 };
 
 const SPECIFIC_EFFECT_INFO = {
@@ -110,19 +128,27 @@ const QUALIFIER_FIELDS = {
   type: "type",
 };
 const QUALIFIER_LEGEND = [
-  { label: "class", alias: "c" },
-  { label: "set", alias: "s" },
-  { label: "format", alias: "f" },
-  { label: "type", alias: "t" },
-  { label: "rarity", alias: "r" },
-  { label: "keyword", alias: "k" },
-  { label: "trait", alias: "tr", secondary: true },
-  { label: "name", alias: "n", secondary: true },
-  { label: "flavor", alias: "fl", secondary: true },
-  { label: "description", alias: "d", secondary: true },
-  { label: "cost", alias: "co", numeric: true },
-  { label: "atk", numeric: true },
-  { label: "hp", numeric: true },
+  [
+    { label: "class", alias: "c" },
+    { label: "type", alias: "t" },
+    { label: "rarity", alias: "r" },
+    { label: "format", alias: "f" },
+    { label: "set", alias: "s" },
+  ],
+  [
+    { label: "cost", alias: "co", numeric: true },
+    { label: "atk", numeric: true },
+    { label: "hp", numeric: true },
+  ],
+  [
+    { label: "keyword", alias: "k" },
+    { label: "trait", alias: "tr", secondary: true },
+  ],
+  [
+    { label: "name", alias: "n", secondary: true },
+    { label: "description", alias: "d", secondary: true },
+    { label: "flavor", alias: "fl", secondary: true },
+  ],
 ];
 const QUALIFIER_PATTERN_SOURCE = Object.keys(QUALIFIER_FIELDS)
   .sort((left, right) => right.length - left.length)
@@ -796,6 +822,10 @@ function renderSearchAugmentation(parsedQuery, query) {
   renderQualifierAutocomplete(query);
   ELEMENTS.augmentationPrefix.textContent = query;
   ELEMENTS.inlineSuggestion.hidden = !suggestion;
+  ELEMENTS.completionSuffix.className = "completion-suffix";
+  ELEMENTS.completionSuffix.style.removeProperty("--recognition-color");
+  ELEMENTS.completionBadge.className = "completion-badge";
+  ELEMENTS.completionBadge.style.removeProperty("--recognition-color");
 
   if (suggestion) {
     const typedLength = query.length - suggestion.start;
@@ -803,7 +833,11 @@ function renderSearchAugmentation(parsedQuery, query) {
     const value = filterValueLabel(suggestion.field, suggestion.value);
 
     ELEMENTS.completionSuffix.textContent = suggestion.alias.slice(typedLength);
+    ELEMENTS.completionSuffix.classList.add(`completion-suffix--${suggestion.field}`);
+    applyAnnotationColor(ELEMENTS.completionSuffix, suggestion);
     ELEMENTS.completionBadge.textContent = `${field} · ${value}`;
+    ELEMENTS.completionBadge.classList.add(`completion-badge--${suggestion.field}`);
+    applyAnnotationColor(ELEMENTS.completionBadge, suggestion);
     ELEMENTS.inlineSuggestion.setAttribute(
       "aria-label",
       `Complete as ${value}, ${field.toLocaleLowerCase()} filter`,
@@ -852,16 +886,21 @@ function renderQualifierAutocomplete(query) {
     button.setAttribute("role", "option");
     button.setAttribute("aria-selected", String(index === STATE.qualifierOptionIndex));
     button.setAttribute("aria-label", `Use ${option.label}`);
+    button.classList.add(
+      "qualifier-autocomplete-option",
+      `qualifier-autocomplete-option--${request.field}`,
+    );
+    applyAnnotationColor(button, { field: request.field, value: option.value });
 
     if (index === 0) {
       const typedValue = normalize(request.rawValue).replaceAll("-", " ");
       const optionValue = normalize(option.label).replaceAll("-", " ");
 
       if (optionValue.startsWith(typedValue)) {
-        button.className = "qualifier-autocomplete-completion";
+        button.classList.add("qualifier-autocomplete-completion");
         button.textContent = option.insertValue.slice(request.rawValue.length);
       } else {
-        button.className = "qualifier-autocomplete-fuzzy";
+        button.classList.add("qualifier-autocomplete-fuzzy");
         button.textContent = label;
       }
     } else {
@@ -1003,6 +1042,7 @@ function renderRecognitionOverlay(query, annotations) {
 
     const recognizedSpan = createRecognitionSpan(query.slice(annotation.start, annotation.end));
     recognizedSpan.classList.add("recognized-token", `recognized-token--${annotation.field}`);
+    applyAnnotationColor(recognizedSpan, annotation);
     fragment.append(recognizedSpan);
     cursor = annotation.end;
   }
@@ -1023,44 +1063,46 @@ function createRecognitionSpan(text) {
 function renderQueryReadout(query, annotations) {
   const annotationFragment = document.createDocumentFragment();
   const legend = document.createElement("span");
-  const primaryLegend = document.createElement("span");
-  const secondaryLegend = document.createElement("span");
-  const numericLegend = document.createElement("span");
 
   legend.className = "query-qualifier-legend";
-  primaryLegend.className = "query-qualifier-row";
-  secondaryLegend.className = "query-qualifier-row query-qualifier-row--secondary";
-  numericLegend.className = "query-qualifier-row query-qualifier-row--numeric";
 
-  for (const qualifier of QUALIFIER_LEGEND) {
-    const hint = document.createElement("span");
+  for (const qualifiers of QUALIFIER_LEGEND) {
+    const row = document.createElement("span");
 
-    hint.className = "query-hint";
-
-    if (qualifier.alias) {
-      const alias = document.createElement("strong");
-      const aliasIndex = qualifier.label.indexOf(qualifier.alias);
-
-      hint.title = `${qualifier.alias}:`;
-      alias.className = "query-hint-alias";
-      alias.textContent = qualifier.alias;
-      hint.append(
-        document.createTextNode(qualifier.label.slice(0, aliasIndex)),
-        alias,
-        document.createTextNode(`${qualifier.label.slice(aliasIndex + qualifier.alias.length)}:`),
-      );
-    } else {
-      hint.textContent = `${qualifier.label}:`;
+    row.className = "query-qualifier-row";
+    if (qualifiers.every((qualifier) => qualifier.secondary)) {
+      row.classList.add("query-qualifier-row--secondary");
     }
-    const row = qualifier.numeric
-      ? numericLegend
-      : qualifier.secondary
-        ? secondaryLegend
-        : primaryLegend;
-    row.append(hint);
-  }
+    if (qualifiers.every((qualifier) => qualifier.numeric)) {
+      row.classList.add("query-qualifier-row--numeric");
+    }
 
-  legend.append(primaryLegend, secondaryLegend, numericLegend);
+    for (const qualifier of qualifiers) {
+      const hint = document.createElement("span");
+
+      hint.className = "query-hint";
+
+      if (qualifier.alias) {
+        const alias = document.createElement("strong");
+        const aliasIndex = qualifier.label.indexOf(qualifier.alias);
+
+        hint.title = `${qualifier.alias}:`;
+        alias.className = "query-hint-alias";
+        alias.textContent = qualifier.alias;
+        hint.append(
+          document.createTextNode(qualifier.label.slice(0, aliasIndex)),
+          alias,
+          document.createTextNode(`${qualifier.label.slice(aliasIndex + qualifier.alias.length)}:`),
+        );
+      } else {
+        hint.textContent = `${qualifier.label}:`;
+      }
+
+      row.append(hint);
+    }
+
+    legend.append(row);
+  }
   let annotationCount = 0;
 
   if (query.trim()) {
@@ -1079,6 +1121,7 @@ function renderQueryReadout(query, annotations) {
       const value = document.createElement("strong");
 
       row.className = `filter-annotation filter-annotation--${annotation.field}`;
+      applyAnnotationColor(row, annotation);
       field.textContent = `${annotation.fieldLabel.toLocaleLowerCase()}:`;
       value.textContent = annotation.valueLabel.toLocaleLowerCase();
       row.append(field, value);
@@ -1090,6 +1133,18 @@ function renderQueryReadout(query, annotations) {
   ELEMENTS.queryFeedback.replaceChildren(legend);
   ELEMENTS.filterAnnotations.replaceChildren(annotationFragment);
   ELEMENTS.filterAnnotations.hidden = annotationCount === 0;
+}
+
+function applyAnnotationColor(element, annotation) {
+  const valueColors = {
+    class: CLASS_QUALIFIER_COLORS,
+    rarity: RARITY_QUALIFIER_COLORS,
+  };
+  const color = valueColors[annotation.field]?.[annotation.value];
+
+  if (color) {
+    element.style.setProperty("--recognition-color", color);
+  }
 }
 
 function describeCriteria(query) {

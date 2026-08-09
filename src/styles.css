@@ -211,61 +211,100 @@ input:focus-visible {
 }
 
 .recognized-token--class,
-.filter-annotation--class {
+.filter-annotation--class,
+.completion-suffix--class,
+.completion-badge--class,
+.qualifier-autocomplete-option--class {
   --recognition-color: #7bd35f;
 }
 
 .recognized-token--type,
-.filter-annotation--type {
+.filter-annotation--type,
+.completion-suffix--type,
+.completion-badge--type,
+.qualifier-autocomplete-option--type {
   --recognition-color: #e1bc73;
 }
 
 .recognized-token--rarity,
-.filter-annotation--rarity {
+.filter-annotation--rarity,
+.completion-suffix--rarity,
+.completion-badge--rarity,
+.qualifier-autocomplete-option--rarity {
   --recognition-color: #c66ce3;
 }
 
 .recognized-token--format,
-.filter-annotation--format {
+.filter-annotation--format,
+.completion-suffix--format,
+.completion-badge--format,
+.qualifier-autocomplete-option--format {
   --recognition-color: #70a8ff;
 }
 
 .recognized-token--set,
-.filter-annotation--set {
+.filter-annotation--set,
+.completion-suffix--set,
+.completion-badge--set,
+.qualifier-autocomplete-option--set {
   --recognition-color: #e3b356;
 }
 
 .recognized-token--cost,
 .filter-annotation--cost,
+.completion-suffix--cost,
+.completion-badge--cost,
+.qualifier-autocomplete-option--cost,
 .recognized-token--atk,
 .filter-annotation--atk,
+.completion-suffix--atk,
+.completion-badge--atk,
+.qualifier-autocomplete-option--atk,
 .recognized-token--hp,
-.filter-annotation--hp {
+.filter-annotation--hp,
+.completion-suffix--hp,
+.completion-badge--hp,
+.qualifier-autocomplete-option--hp {
   --recognition-color: #e87848;
 }
 
 .recognized-token--mechanic,
-.filter-annotation--mechanic {
+.filter-annotation--mechanic,
+.completion-suffix--mechanic,
+.completion-badge--mechanic,
+.qualifier-autocomplete-option--mechanic {
   --recognition-color: #5ad6d1;
 }
 
 .recognized-token--trait,
-.filter-annotation--trait {
+.filter-annotation--trait,
+.completion-suffix--trait,
+.completion-badge--trait,
+.qualifier-autocomplete-option--trait {
   --recognition-color: #a9c76f;
 }
 
 .recognized-token--name,
-.filter-annotation--name {
+.filter-annotation--name,
+.completion-suffix--name,
+.completion-badge--name,
+.qualifier-autocomplete-option--name {
   --recognition-color: #87939e;
 }
 
 .recognized-token--flavor,
-.filter-annotation--flavor {
+.filter-annotation--flavor,
+.completion-suffix--flavor,
+.completion-badge--flavor,
+.qualifier-autocomplete-option--flavor {
   --recognition-color: #d09b73;
 }
 
 .recognized-token--description,
-.filter-annotation--description {
+.filter-annotation--description,
+.completion-suffix--description,
+.completion-badge--description,
+.qualifier-autocomplete-option--description {
   --recognition-color: #9c8ee8;
 }
 
@@ -298,7 +337,7 @@ input:focus-visible {
 }
 
 .completion-suffix {
-  color: rgba(225, 188, 115, 0.48);
+  color: color-mix(in srgb, var(--recognition-color, var(--gold)) 62%, transparent);
 }
 
 .completion-badge {
@@ -310,9 +349,9 @@ input:focus-visible {
 
 .completion-badge {
   padding: 5px 7px;
-  border: 1px dashed rgba(225, 188, 115, 0.62);
-  color: var(--gold);
-  background: rgba(225, 188, 115, 0.08);
+  border: 1px dashed color-mix(in srgb, var(--recognition-color, var(--gold)) 62%, transparent);
+  color: var(--recognition-color, var(--gold));
+  background: color-mix(in srgb, var(--recognition-color, var(--gold)) 8%, transparent);
 }
 
 .inline-suggestion kbd {
@@ -329,7 +368,7 @@ input:focus-visible {
 .inline-suggestion:hover .completion-badge,
 .inline-suggestion:focus-visible .completion-badge {
   border-style: solid;
-  background: rgba(225, 188, 115, 0.14);
+  background: color-mix(in srgb, var(--recognition-color, var(--gold)) 14%, transparent);
 }
 
 .qualifier-autocomplete {
@@ -389,7 +428,7 @@ input:focus-visible {
   min-height: 0;
   padding: 0;
   border: 0;
-  color: rgba(90, 214, 209, 0.72);
+  color: var(--recognition-color, var(--cyan));
   background: transparent;
   cursor: pointer;
   font-size: inherit;
@@ -402,8 +441,8 @@ input:focus-visible {
 .qualifier-autocomplete-list button:hover,
 .qualifier-autocomplete-list button:focus-visible,
 .qualifier-autocomplete-list button.is-active {
-  color: #efffff;
-  background: rgba(90, 214, 209, 0.14);
+  color: var(--recognition-color, var(--cyan));
+  background: color-mix(in srgb, var(--recognition-color, var(--cyan)) 14%, transparent);
   outline-offset: 0;
 }
 
@@ -985,7 +1024,6 @@ input:focus-visible {
 
 .detail-keyword {
   padding: 0 0.12em;
-  border-radius: 2px;
   color: #bff8f4;
   background: rgba(90, 214, 209, 0.13);
   box-shadow: inset 0 -1px 0 rgba(90, 214, 209, 0.82);
