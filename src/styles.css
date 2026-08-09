@@ -502,16 +502,19 @@ input:focus-visible {
   color: #697682;
 }
 
-.query-readout,
+.query-readout {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  gap: 24px;
+}
+
 .filter-annotations {
   display: flex;
   min-width: 0;
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
-}
-
-.filter-annotations {
   overflow: hidden;
 }
 

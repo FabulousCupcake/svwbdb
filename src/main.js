@@ -1790,7 +1790,7 @@ function scoreCard(card, terms) {
 function render() {
   const selectedCard = STATE.cards.find((card) => card.id === STATE.selectedId) ?? null;
   const hasDetail = selectedCard !== null;
-  const relatedCards = selectedCard ? relatedTokenCards(selectedCard) : [];
+  const relatedCards = selectedCard ? getRelatedCards(selectedCard) : [];
   const showsMultipleDetails =
     !hasDetail && STATE.matches.length === 2 && MULTI_DETAIL_VIEW.matches;
   const hidesSoleResultList = hasDetail && STATE.matches.length === 1;
@@ -1941,7 +1941,7 @@ function createMultiDetailCard(card) {
   credits.className = "detail-credits";
   credits.append(...createCredits(card));
   content.append(tags, ability, flavour, credits);
-  copy.append(heading, content, createRelatedCardList(relatedTokenCards(card)));
+  copy.append(heading, content, createRelatedCardList(getRelatedCards(card)));
   article.append(visualButton, copy);
   return article;
 }
@@ -2048,19 +2048,23 @@ function createCredits(card) {
   return [mainCredits, cardIdentity];
 }
 
-function relatedTokenCards(card) {
+function getRelatedCards(card) {
   const seen = new Set([card.id]);
 
   return (card.raw.related_card_ids ?? [])
     .map((cardId) => STATE.cards.find((candidate) => candidate.id === cardId))
     .filter((relatedCard) => {
-      if (!relatedCard?.common.is_token || seen.has(relatedCard.id)) {
+      if (!relatedCard || seen.has(relatedCard.id)) {
         return false;
       }
 
       seen.add(relatedCard.id);
       return true;
-    });
+    })
+    .sort(
+      (left, right) =>
+        left.common.cost - right.common.cost || left.sortIndex - right.sortIndex,
+    );
 }
 
 function createRelatedCardList(cards) {
@@ -2073,7 +2077,7 @@ function createRelatedCardList(cards) {
   heading.className = "detail-related-heading";
   heading.textContent = "RELATED CARDS";
   list.className = "detail-related-cards";
-  list.setAttribute("aria-label", "Related token cards");
+  list.setAttribute("aria-label", "Related cards");
   renderRelatedCards(list, cards);
   wrapper.append(heading, list);
   return wrapper;
@@ -2088,7 +2092,7 @@ function renderRelatedCards(list, cards) {
     button.type = "button";
     button.dataset.relatedCardId = String(card.id);
     button.title = card.common.name;
-    button.setAttribute("aria-label", `View related token ${card.common.name}`);
+    button.setAttribute("aria-label", `View related card ${card.common.name}`);
     button.style.setProperty("--card-accent", card.classInfo.color);
     button.append(image);
     return button;
