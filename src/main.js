@@ -1854,17 +1854,8 @@ function createMultiDetailCard(card) {
   const overline = document.createElement("p");
   const name = document.createElement("h2");
   const tags = document.createElement("div");
-  const ability = createMultiDetailSection(
-    "ABILITY",
-    card.skillText,
-    false,
-    true,
-  );
-  const flavour = createMultiDetailSection(
-    "FLAVOUR",
-    card.common.flavour_text,
-    true,
-  );
+  const ability = createMultiDetailSection(card.skillText, false, true);
+  const flavour = createMultiDetailSection(card.common.flavour_text, true);
   const credits = document.createElement("dl");
 
   article.className = "detail-panel multi-detail-card";
@@ -1883,7 +1874,7 @@ function createMultiDetailCard(card) {
   copy.className = "detail-copy";
   heading.className = "detail-heading";
   overline.className = "detail-overline";
-  overline.textContent = `${card.classInfo.label} / ${card.setLabel}`;
+  overline.textContent = detailOverline(card);
   name.textContent = card.common.name;
   headingText.append(overline, name);
   heading.append(headingText);
@@ -1891,8 +1882,6 @@ function createMultiDetailCard(card) {
   tags.className = "detail-tags";
   tags.append(
     createTag(card.typeLabel),
-    createTag(card.rarityLabel),
-    ...(card.common.is_include_rotation ? [createTag("Rotation")] : []),
     ...(card.common.is_token ? [createTag("Token")] : []),
   );
 
@@ -1903,14 +1892,11 @@ function createMultiDetailCard(card) {
   return article;
 }
 
-function createMultiDetailSection(labelText, valueText, isFlavour = false, highlightsKeywords = false) {
+function createMultiDetailSection(valueText, isFlavour = false, highlightsKeywords = false) {
   const section = document.createElement("section");
-  const label = document.createElement("p");
   const value = document.createElement("p");
 
   section.className = `detail-section ${isFlavour ? "detail-section--flavour" : "detail-section--ability"}`;
-  label.className = "detail-label";
-  label.textContent = labelText;
   value.className = `detail-text${isFlavour ? " detail-text--flavour" : ""}`;
 
   if (highlightsKeywords) {
@@ -1919,7 +1905,7 @@ function createMultiDetailSection(labelText, valueText, isFlavour = false, highl
     value.textContent = cleanGameText(valueText) || "No flavour text.";
   }
 
-  section.append(label, value);
+  section.append(value);
   return section;
 }
 
@@ -1952,15 +1938,13 @@ function renderSelectedCard() {
     ELEMENTS.detailEvolvedImage.removeAttribute("src");
   }
 
-  ELEMENTS.detailOverline.textContent = `${card.classInfo.label} / ${card.setLabel}`;
+  ELEMENTS.detailOverline.textContent = detailOverline(card);
   ELEMENTS.detailName.textContent = card.common.name;
   renderHighlightedGameText(ELEMENTS.detailSkill, card.skillText, "No ability text.");
   ELEMENTS.detailFlavour.textContent = flavourText;
 
   ELEMENTS.detailTags.replaceChildren(
     createTag(card.typeLabel),
-    createTag(card.rarityLabel),
-    ...(card.common.is_include_rotation ? [createTag("Rotation")] : []),
     ...(card.common.is_token ? [createTag("Token")] : []),
   );
 
@@ -1991,6 +1975,13 @@ function createVoiceCredit(card) {
   return [japaneseLabel, japaneseValue, englishLabel, englishValue];
 }
 
+function detailOverline(card) {
+  return [
+    card.classInfo.label,
+    ...(card.common.is_include_rotation ? ["Rotation"] : []),
+  ].join(" / ");
+}
+
 function createCredits(card) {
   const mainCredits = document.createElement("div");
   const cardIdentity = document.createElement("div");
@@ -1998,6 +1989,7 @@ function createCredits(card) {
   mainCredits.className = "detail-credit-column";
   cardIdentity.className = "detail-credit-column detail-credit-column--identity";
   mainCredits.append(
+    ...createCredit("SET", card.setLabel),
     ...createCredit("ILLUSTRATOR", card.common.illustrator || "—"),
     ...createVoiceCredit(card),
   );

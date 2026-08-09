@@ -113,7 +113,6 @@ input:focus-visible {
 }
 
 .detail-overline,
-.detail-label,
 .query-feedback,
 .result-status,
 .clear-button,
@@ -932,11 +931,6 @@ input:focus-visible {
 
 .detail-section--flavour {
   flex: 0 1 auto;
-}
-
-.detail-label {
-  margin: 0 0 6px;
-  color: var(--class-accent);
 }
 
 .detail-text {
