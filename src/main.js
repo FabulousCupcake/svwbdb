@@ -2109,7 +2109,7 @@ function selectCard(cardId, source) {
 }
 
 function selectFirstResult() {
-  if (STATE.matches.length) {
+  if (ELEMENTS.searchInput.value.trim() && STATE.matches.length) {
     selectCard(STATE.matches[0].id, "click");
   }
 }
