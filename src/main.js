@@ -977,7 +977,6 @@ function collectQueryAnnotations(query) {
     const token = normalize(match[0]);
     const alias = FILTER_ALIASES.get(token);
     const searchAlias = STATE.searchAliases.get(token);
-    const suggestionStartsHere = STATE.suggestions.some((suggestion) => suggestion.start === match.index);
 
     if (searchAlias) {
       addAnnotation(match.index, match.index + match[0].length, "name", searchAlias);
@@ -985,7 +984,7 @@ function collectQueryAnnotations(query) {
       addAnnotation(match.index, match.index + match[0].length, alias.field, alias.value);
     } else if (/^\d{1,2}$/u.test(token) && Number(token) <= 18) {
       addAnnotation(match.index, match.index + match[0].length, "cost", token);
-    } else if (!suggestionStartsHere) {
+    } else {
       addAnnotation(match.index, match.index + match[0].length, "name", match[0]);
     }
   }
