@@ -1,4 +1,5 @@
 import CARD_DATA_URL from "../data/cards.json?url";
+import CARD_SET_DATA_URL from "../data/card-sets.json?url";
 import KEYWORD_DATA_URL from "../data/keywords.json?url";
 import TRAIT_DATA_URL from "../data/traits.json?url";
 import ALIAS_DATA_URL from "../data/aliases.json?url";
@@ -97,20 +98,8 @@ const SPECIFIC_EFFECT_INFO = {
   4: { label: "Faith", showsCost: false },
 };
 
-const SET_INFO = {
-  10000: "Basic",
-  10001: "Legends Rise",
-  10002: "Infinity Evolved",
-  10003: "Heirs of the Omen",
-  10004: "Skybound Dragons",
-  10005: "Blossoming Fate",
-  10006: "Apocalypse Pact",
-  10007: "Anathema's Gambit",
-  10008: "Chronicle of Destiny",
-  90000: "Token",
-};
-
 const FILTER_ALIASES = new Map();
+const CARD_SET_NAMES = new Map();
 const MECHANIC_INFO = new Map();
 const TRAIT_INFO = new Map();
 const NUMERIC_CARD_FIELDS = {
@@ -203,12 +192,6 @@ addAliases("rarity", 4, ["legendary", "legend"]);
 addAliases("format", "rotation", ["rotation"]);
 addAliases("format", "all", ["unlimited", "boundless", "infinity"]);
 addAliases("format", "starter", ["starter", "simplified"]);
-
-for (const [setId, label] of Object.entries(SET_INFO)) {
-  if (Number(setId) !== 90000) {
-    addAliases("set", Number(setId), [setQualifierToken(label)]);
-  }
-}
 
 const ELEMENTS = {
   searchForm: document.querySelector("#search-form"),
@@ -406,19 +389,24 @@ initialize();
 
 async function initialize() {
   try {
-    const [cardResponse, keywordResponse, traitResponse, aliasResponse] = await Promise.all([
-      fetch(CARD_DATA_URL),
-      fetch(KEYWORD_DATA_URL),
-      fetch(TRAIT_DATA_URL),
-      fetch(ALIAS_DATA_URL),
-    ]);
-    const [cardsById, keywordNames, traitNames, searchAliases] = await Promise.all([
-      cardResponse.json(),
-      keywordResponse.json(),
-      traitResponse.json(),
-      aliasResponse.json(),
-    ]);
+    const [cardResponse, cardSetResponse, keywordResponse, traitResponse, aliasResponse] =
+      await Promise.all([
+        fetch(CARD_DATA_URL),
+        fetch(CARD_SET_DATA_URL),
+        fetch(KEYWORD_DATA_URL),
+        fetch(TRAIT_DATA_URL),
+        fetch(ALIAS_DATA_URL),
+      ]);
+    const [cardsById, cardSetNames, keywordNames, traitNames, searchAliases] =
+      await Promise.all([
+        cardResponse.json(),
+        cardSetResponse.json(),
+        keywordResponse.json(),
+        traitResponse.json(),
+        aliasResponse.json(),
+      ]);
 
+    registerCardSetData(cardSetNames);
     registerReferenceData(keywordNames, traitNames);
     STATE.searchAliases = new Map(
       Object.entries(searchAliases).map(([alias, replacement]) => [
@@ -524,6 +512,18 @@ function addAliases(field, value, aliases) {
   }
 }
 
+function registerCardSetData(cardSetNames) {
+  for (const [rawValue, label] of Object.entries(cardSetNames)) {
+    if (!label) {
+      continue;
+    }
+
+    const value = Number(rawValue);
+    CARD_SET_NAMES.set(value, label);
+    addAliases("set", value, [setQualifierToken(label)]);
+  }
+}
+
 function registerReferenceData(keywordNames, traitNames) {
   for (const [rawValue, label] of Object.entries(keywordNames)) {
     if (!label) {
@@ -559,7 +559,9 @@ function prepareCard(card) {
   const classInfo = CLASS_INFO[common.class] ?? CLASS_INFO[0];
   const typeLabel = TYPE_INFO[common.type] ?? "Card";
   const rarityLabel = RARITY_INFO[common.rarity] ?? "Unknown";
-  const setLabel = SET_INFO[common.card_set_id] ?? `Set ${common.card_set_id}`;
+  const setLabel = common.is_token
+    ? "Token"
+    : CARD_SET_NAMES.get(common.card_set_id) ?? `Set ${common.card_set_id}`;
   const skillText = combinedSkillText(card);
 
   return {
@@ -1265,7 +1267,7 @@ function filterValueLabel(field, value) {
   if (field === "format") {
     return { rotation: "Rotation", all: "Unlimited", starter: "Starter" }[value] ?? String(value);
   }
-  if (field === "set") return SET_INFO[value] ?? String(value);
+  if (field === "set") return CARD_SET_NAMES.get(value) ?? String(value);
   if (field === "mechanic") return MECHANIC_INFO.get(value) ?? String(value);
   if (field === "trait") return TRAIT_INFO.get(value) ?? String(value);
   if (["name", "cost", "atk", "hp"].includes(field)) return String(value);
@@ -1384,13 +1386,11 @@ function getQualifierOptions(field, prefix = "") {
       { label: "Starter", insertValue: "starter", value: "starter" },
     ];
   } else if (field === "set") {
-    options = Object.entries(SET_INFO)
-      .filter(([value]) => Number(value) !== 90000)
-      .map(([value, label]) => ({
-        label,
-        insertValue: setQualifierToken(label),
-        value: Number(value),
-      }));
+    options = [...CARD_SET_NAMES].map(([value, label]) => ({
+      label,
+      insertValue: setQualifierToken(label),
+      value,
+    }));
   } else if (field === "mechanic") {
     options = [...MECHANIC_INFO].map(([value, label]) => ({
       label: mechanicQualifierToken(label),
@@ -1887,7 +1887,7 @@ function render() {
   ELEMENTS.resultGrid.replaceChildren(fragment);
 
   if (!ELEMENTS.searchInput.value.trim() && STATE.matches.length) {
-    const latestSetLabel = SET_INFO[STATE.latestSetId] ?? `Set ${STATE.latestSetId}`;
+    const latestSetLabel = CARD_SET_NAMES.get(STATE.latestSetId) ?? `Set ${STATE.latestSetId}`;
     ELEMENTS.resultStatus.textContent = `Showing ${visibleCards.length} of ${STATE.matches.length} · ${latestSetLabel}`;
   } else if (STATE.matches.length === 0) {
     ELEMENTS.resultStatus.textContent = "0 cards";

@@ -26,6 +26,8 @@ jobs:
         run: |
           data/cards/01-download.sh
           data/cards/02-compile.sh
+          data/card-sets/01-download.sh
+          data/card-sets/02-compile.sh
           data/keywords/01-download.sh
           data/keywords/02-compile.sh
           data/traits/01-download.sh
@@ -33,7 +35,7 @@ jobs:
 
       - name: Commit updated game data
         run: |
-          if [[ -z "$(git status --porcelain -- data/cards.json data/keywords.json data/traits.json)" ]]; then
+          if [[ -z "$(git status --porcelain -- data/cards.json data/card-sets.json data/keywords.json data/traits.json)" ]]; then
               echo "Game data is unchanged."
               exit 0
           fi
@@ -42,6 +44,6 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/cards.json data/keywords.json data/traits.json
+          git add data/cards.json data/card-sets.json data/keywords.json data/traits.json
           git commit -m "Update game data ($TIMESTAMP)"
           git push origin HEAD:master

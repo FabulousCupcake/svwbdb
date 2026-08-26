@@ -137,15 +137,16 @@ that source has not yet been selected.
 
 ## Card data and automation
 
-The existing card-data pipeline downloads every page of the official card list
-and compiles only the card details into `data/cards.json`. The browser will use
-this compiled file as its initial in-memory dataset.
+The existing card-data pipelines download the official card list and compile
+card details into `data/cards.json` and card set names into
+`data/card-sets.json`. The browser will use these compiled files as its initial
+in-memory datasets.
 
 The scheduled GitHub Actions workflow checks for updated card data daily and
-commits a changed `data/cards.json` to `master`. Once deployment is connected,
-this should make new cards available without manual intervention. Their image
-hashes allow the browser to construct the corresponding official image URLs
-without a separate image update process.
+commits changed compiled data to `master`. Once deployment is connected, this
+should make new cards and their set names available without manual intervention.
+Their image hashes allow the browser to construct the corresponding official
+image URLs without a separate image update process.
 
 ## Hosting and deployment
 
