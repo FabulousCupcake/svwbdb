@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="SVWBDB is a fast, local-first card database for Shadowverse: Worlds Beyond."
+    />
+    <title>SVWBDB — Card Database</title>
+    <script type="module" crossorigin src="./assets/index-2NOPw3E-.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-MG_vCFr_.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="masthead">
+        <form class="search-form" role="search" id="search-form">
+          <label class="visually-hidden" for="card-search">Search cards</label>
+          <span class="search-prompt" aria-hidden="true">⌕</span>
+          <div class="search-field">
+            <div class="recognition-overlay" id="recognition-overlay" aria-hidden="true"></div>
+            <div class="search-augmentation" id="search-augmentation">
+              <span class="augmentation-prefix" id="augmentation-prefix" aria-hidden="true"></span>
+              <button class="inline-suggestion" id="inline-suggestion" type="button" hidden>
+                <span class="completion-suffix" id="completion-suffix"></span>
+                <span class="completion-badge" id="completion-badge"></span>
+                <kbd>TAB</kbd>
+              </button>
+            </div>
+            <div class="qualifier-autocomplete" id="qualifier-autocomplete" hidden>
+              <span
+                class="qualifier-autocomplete-prefix"
+                id="qualifier-autocomplete-prefix"
+                aria-hidden="true"
+              ></span>
+              <div
+                class="qualifier-autocomplete-list"
+                id="qualifier-autocomplete-list"
+                role="listbox"
+              ></div>
+            </div>
+            <input
+              id="card-search"
+              name="query"
+              type="search"
+              placeholder=""
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              aria-describedby="search-assist-status"
+              aria-autocomplete="list"
+              aria-controls="qualifier-autocomplete-list"
+              autofocus
+            />
+          </div>
+          <button class="clear-button" id="clear-search" type="button" hidden>
+            CLEAR
+          </button>
+          <span class="visually-hidden" id="search-assist-status" aria-live="polite"></span>
+        </form>
+
+        <div class="search-meta">
+          <div class="query-readout">
+            <div class="query-feedback" id="query-feedback"></div>
+            <div
+              class="filter-annotations"
+              id="filter-annotations"
+              aria-live="polite"
+              hidden
+            ></div>
+          </div>
+          <p class="result-status" id="result-status" aria-live="polite">
+            Preparing index…
+          </p>
+        </div>
+      </header>
+
+      <main class="workspace" id="workspace">
+        <section class="results-panel" id="results-panel" aria-label="Card results">
+          <div class="loading-state" id="loading-state">
+            <span class="loading-state__line"></span>
+            <span>Building the local index</span>
+          </div>
+          <div class="result-grid" id="result-grid"></div>
+          <p
+            class="result-overflow-status result-status"
+            id="result-overflow-status"
+            aria-live="polite"
+            hidden
+          ></p>
+          <div class="empty-state" id="empty-state" hidden>
+            <p class="empty-state__code">NO MATCH</p>
+            <h2>No cards found.</h2>
+            <p>Remove a condition or try a different spelling.</p>
+          </div>
+        </section>
+
+        <section
+          class="multi-detail-panel"
+          id="multi-detail-panel"
+          aria-label="Matching card details"
+          hidden
+        ></section>
+
+        <aside class="detail-panel" id="detail-panel" aria-label="Card details" hidden>
+          <div class="detail-visual">
+            <div class="detail-image-frame" id="detail-image-frame">
+              <img
+                class="card-art-image card-art-image--base"
+                id="detail-base-image"
+                width="530"
+                height="687"
+                alt=""
+              />
+              <img
+                class="card-art-image card-art-image--evolved"
+                id="detail-evolved-image"
+                width="530"
+                height="687"
+                alt=""
+                aria-hidden="true"
+              />
+            </div>
+          </div>
+
+          <div class="detail-copy">
+            <div class="detail-heading">
+              <div>
+                <h2 id="detail-name"></h2>
+              </div>
+              <div class="detail-heading-icons" id="detail-heading-icons"></div>
+            </div>
+
+            <div class="detail-copy-content">
+              <div class="detail-tags" id="detail-tags"></div>
+
+              <section class="detail-section detail-section--ability">
+                <p class="detail-text" id="detail-skill"></p>
+              </section>
+
+              <section class="detail-section detail-section--flavour">
+                <p class="detail-text detail-text--flavour" id="detail-flavour"></p>
+              </section>
+
+              <dl class="detail-credits" id="detail-credits"></dl>
+            </div>
+
+            <div class="detail-related" id="detail-related" hidden>
+              <p class="detail-related-heading">RELATED CARDS</p>
+              <div
+                class="detail-related-cards"
+                id="detail-related-cards"
+                aria-label="Related cards"
+              ></div>
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+  </body>
+</html>
