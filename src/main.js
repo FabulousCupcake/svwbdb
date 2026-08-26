@@ -645,7 +645,7 @@ function compareCards(left, right) {
 
 function createCardNode(card) {
   const button = document.createElement("button");
-  const [baseImage] = createArtworkImages(card, true, false);
+  const [baseImage, evolvedImage] = createArtworkImages(card, true);
 
   button.className = "card-tile";
   button.type = "button";
@@ -659,7 +659,7 @@ function createCardNode(card) {
     button.classList.add("has-image-error");
   });
 
-  button.append(baseImage);
+  button.append(baseImage, ...(evolvedImage ? [evolvedImage] : []));
   return button;
 }
 
