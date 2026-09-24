@@ -2723,7 +2723,19 @@
       "cv_jp": ""
     },
     "evo": [],
-    "style_card_list": [],
+    "style_card_list": [
+      {
+        "hash": "85bd47324bbd404b894f03511c7f118b",
+        "evo_hash": "",
+        "name": "",
+        "name_ruby": "",
+        "cv": "Cristina M. Medina",
+        "illustrator": "Akefumi",
+        "skill_text": "",
+        "flavour_text": "\"Good always triumphs in the end,\" was it? Well, us bad guys don't sweat the details. We just want to have fun. After that, whatever happens, happens.",
+        "evo_flavour_text": ""
+      }
+    ],
     "related_card_ids": [],
     "specific_effect_card_ids": [],
     "specific_effects": []
@@ -6355,7 +6367,19 @@
       "card_image_hash": "f55dbd045b77437e90f0217239ecc322",
       "card_banner_image_hash": "7e6f5e150449449ebf86c7c56ae3ff43"
     },
-    "style_card_list": [],
+    "style_card_list": [
+      {
+        "hash": "0bfcda7c2e034dbcbeda0d392706778d",
+        "evo_hash": "c2b056ae7a9643c1bc47be65c27638d2",
+        "name": "Yearnguard",
+        "name_ruby": "Yearnguard",
+        "cv": "Kaiji Tang",
+        "illustrator": "Kinako Kuromitsu",
+        "skill_text": "",
+        "flavour_text": "He took it all from me that day—my ideals, my pride, my everything. The only thing that he left me was a burning hatred. A hatred that birthed a desire for power. As long as it meant I could shoot him down with my own hands, I would pay any price and sink to any depth.",
+        "evo_flavour_text": "A talented ruler would never wield a weapon with their own hands. Their swords and scepters are nothing more than regalia—a symbol of their authority. Yet, he is no longer a ruler. So with the power bestowed onto him, he will draw his gun and fire as many bullets as it takes to fulfill his final ideal."
+      }
+    ],
     "related_card_ids": [],
     "specific_effect_card_ids": [],
     "specific_effects": []
