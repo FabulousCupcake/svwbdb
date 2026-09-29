@@ -6209,6 +6209,70 @@
     "specific_effect_card_ids": [],
     "specific_effects": []
   },
+  "10974110": {
+    "common": {
+      "card_id": 10974110,
+      "name": "Cutthroat, Fluxblade Convict",
+      "name_ruby": "Cutthroat, Fluxblade Convict",
+      "base_card_id": 10974110,
+      "card_resource_id": 109741100,
+      "atk": 1,
+      "life": 1,
+      "flavour_text": "I'm sorry, brother. I should've done better. Even steel has a breaking point, not to mention your heart. You were always there for me; now it's my turn to be there for you. Let's go home and start over again, okay?",
+      "skill_text": "<b><color=Keyword>Bane</color></b>\n<hr><ev><b><color=Keyword>Evolve</color></b>: Draw a Portalcraft follower with <b><color=Keyword>Bane</color></b>. Then, if there are no duplicates in your deck, gain <b><i>Crest: Cutthroat, Fluxblade Convict</i></b>.</ev>",
+      "card_set_id": 10009,
+      "type": 1,
+      "class": 7,
+      "tribes": [
+        0
+      ],
+      "cost": 1,
+      "rarity": 4,
+      "cv": "Lucien Dodge",
+      "illustrator": "ezusuke",
+      "questions": [],
+      "is_token": false,
+      "is_include_rotation": true,
+      "deck_enabled_num": 3,
+      "card_image_hash": "77e3f230aece42d5be6e0f085dc18c65",
+      "card_banner_image_hash": "7b65bfea59444c518b9e9a3313989b12",
+      "original_card_id": null,
+      "is_starter_ability_changed": false,
+      "cv_jp": "花江夏樹"
+    },
+    "evo": {
+      "card_resource_id": 109741101,
+      "flavour_text": "Listen to me, brother. That can't be how you really feel. Remember how you've always told me of your ideals? You were always mine. But it seems like the ruler of this prison has confused you. Don't worry, I'll free you from this curse soon.\n\"Pierce him through, Soulforge.\"",
+      "skill_text": "<b><color=Keyword>Bane</color></b>\n<hr><ev><b><color=Keyword>Evolve</color></b>: Draw a Portalcraft follower with <b><color=Keyword>Bane</color></b>. Then, if there are no duplicates in your deck, gain <b><i>Crest: Cutthroat, Fluxblade Convict</i></b>.</ev>",
+      "card_image_hash": "acdd52388ca44d1aae52af8d2e61d597",
+      "card_banner_image_hash": "a978d809ed0f4d33ac9e96ed4ce47a97"
+    },
+    "style_card_list": [
+      {
+        "hash": "bab4ee2e5d474bdba96f0e2f71c926b4",
+        "evo_hash": "9b64ee65e4484d978f98b4a918a5e1e3",
+        "name": "",
+        "name_ruby": "",
+        "cv": "",
+        "illustrator": "Yanagawa",
+        "skill_text": "",
+        "flavour_text": "\"You're much faster, Cutty, so I'll let you handle it.\"\n\"It's just like you to have a perfect plan even I can't grasp.\"\n\"I know you'll pave a path for us, no matter the odds.\"\n\"A brilliant mind surrounded by scrap... I'll do what I want then.\"",
+        "evo_flavour_text": "Gathering under the blade, the renegades took up arms against tyranny. But the scraps knew not of the blade's true aim, and the blade was ignorant of familial hatred. When the dust of their uprising settles, will a society without rulers await... or the reunion of two brothers who remain a cut above the rest?"
+      }
+    ],
+    "related_card_ids": [],
+    "specific_effect_card_ids": [
+      10974112
+    ],
+    "specific_effects": [
+      {
+        "specific_effect_card_id": 10974112,
+        "specific_effect_type": 1,
+        "cost": 0,
+        "skill_text": "Once on each of your turns, when you play a follower, evolve it."
+      }
+    ]
+  },
   "90071120": {
     "common": {
       "card_id": 90071120,
@@ -6324,7 +6388,19 @@
       "card_image_hash": "0eb9452888874c428bab62f6c7fa1014",
       "card_banner_image_hash": "20871d31da2b4aadb6eb7cc4039580be"
     },
-    "style_card_list": [],
+    "style_card_list": [
+      {
+        "hash": "1826571306994fef94e1ed9e731002c2",
+        "evo_hash": "4c620c54fbb64fe99ef695593ed8e5e2",
+        "name": "Eudie's Analyzing Artifact",
+        "name_ruby": "Eudie's Analyzing Artifact",
+        "cv": "Kelsey Jaffer",
+        "illustrator": "Mikeboshi",
+        "skill_text": "",
+        "flavour_text": "Her job as your mentor is to point you in the right direction and watch with a smile as you set off. Yet sometimes she'll jump ahead and lead you by example. There is no deeper meaning to be gleaned from her whims—she simply does as she desires.",
+        "evo_flavour_text": "She scraped together information and analyzed it carefully, all so that she could help you grow. And as you flourished before her eyes, the brimming pride she felt was reward enough. For there was only one reason behind her efforts, summed up in a simple catchphrase:\n\"Hehe. I'm your mentor, after all.\""
+      }
+    ],
     "related_card_ids": [],
     "specific_effect_card_ids": [],
     "specific_effects": []
@@ -6952,7 +7028,7 @@
       "atk": 0,
       "life": 0,
       "flavour_text": "\"Well, brother, looks like you'll be the successor. No need for gratitude.\"\n\"Gratitude? You mean... You gave up for my sake?\"\n\"What's getting you so worked up? You wanted this, didn't you?\"\n\"...Get out of my sight. You're a stain upon our family.\"",
-      "skill_text": "Select a card in your hand and discard it. Draw a card. If there are no duplicates in your deck, draw 3 instead.",
+      "skill_text": "Select a card in your hand and discard it. Draw a Portalcraft follower with <b><color=Keyword>Bane</color></b>. Then, if there are no duplicates in your deck, draw 2 cards.",
       "card_set_id": 10009,
       "type": 4,
       "class": 7,
@@ -10275,7 +10351,7 @@
       "base_card_id": 10921110,
       "card_resource_id": 109211100,
       "atk": 2,
-      "life": 1,
+      "life": 2,
       "flavour_text": "By chance and good fortune, I broke off my iron collar and became a free man. But when I saw others in restraints during my carefree travels, my blood boiled for their sakes, and I took action against their captors.\n—<i>Hall of Virtue: Memories of an Enforcer</i>, Part 1",
       "skill_text": "<b><color=Keyword>Fanfare</color></b>: Summon a <b><i><color=Keyword>Dread Pirate's Flag</color></i></b>.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Add a <b><i><color=Keyword>Gilded Boots</color></i></b> to your hand.</ev>",
       "card_set_id": 10009,
@@ -10292,7 +10368,7 @@
       "is_token": false,
       "is_include_rotation": true,
       "deck_enabled_num": 3,
-      "card_image_hash": "9d0e50471c1a4f17a9287aedf8672c0f",
+      "card_image_hash": "f92d5a4ca0e140e68cd715be8ae8db96",
       "card_banner_image_hash": "4378902e14ee43de881adc6f87d071c0",
       "original_card_id": null,
       "is_starter_ability_changed": false,
@@ -10302,7 +10378,7 @@
       "card_resource_id": 109211101,
       "flavour_text": "What officials? What nobles? They are nothing but villains who steal freedom from innocent people. In liberating others, I became wanted as a pirate. And though my ship grows smaller with each free man that joins me, I don't regret a thing.\n—<i>Hall of Virtue: Memories of an Enforcer</i>, Part 2",
       "skill_text": "<b><color=Keyword>Fanfare</color></b>: Summon a <b><i><color=Keyword>Dread Pirate's Flag</color></i></b>.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Add a <b><i><color=Keyword>Gilded Boots</color></i></b> to your hand.</ev>",
-      "card_image_hash": "e2707bf1cae24690b99f20244b0141ad",
+      "card_image_hash": "a0b296a3c401480e8a60437eaa01a447",
       "card_banner_image_hash": "dfb0baade0784f3399806a8b9dcc52e7"
     },
     "style_card_list": [],
@@ -16607,72 +16683,6 @@
     "specific_effect_card_ids": [],
     "specific_effects": []
   },
-  "10974110": {
-    "common": {
-      "card_id": 10974110,
-      "name": "Cutthroat, Fluxblade Convict",
-      "name_ruby": "Cutthroat, Fluxblade Convict",
-      "base_card_id": 10974110,
-      "card_resource_id": 109741100,
-      "atk": 2,
-      "life": 2,
-      "flavour_text": "I'm sorry, brother. I should've done better. Even steel has a breaking point, not to mention your heart. You were always there for me; now it's my turn to be there for you. Let's go home and start over again, okay?",
-      "skill_text": "<b><color=Keyword>Bane</color></b>\n<hr><ev><b><color=Keyword>Evolve</color></b>: Banish all copies of <b><i><color=Keyword>Cutthroat, Fluxblade Convict</color></i></b> from your deck. Then, if there are no duplicates in your deck, gain <b><i>Crest: Cutthroat, Fluxblade Convict</i></b>.</ev>",
-      "card_set_id": 10009,
-      "type": 1,
-      "class": 7,
-      "tribes": [
-        0
-      ],
-      "cost": 2,
-      "rarity": 4,
-      "cv": "Lucien Dodge",
-      "illustrator": "ezusuke",
-      "questions": [],
-      "is_token": false,
-      "is_include_rotation": true,
-      "deck_enabled_num": 3,
-      "card_image_hash": "1c5d30e743594698874a5e922cf87267",
-      "card_banner_image_hash": "7b65bfea59444c518b9e9a3313989b12",
-      "original_card_id": null,
-      "is_starter_ability_changed": false,
-      "cv_jp": "花江夏樹"
-    },
-    "evo": {
-      "card_resource_id": 109741101,
-      "flavour_text": "Listen to me, brother. That can't be how you really feel. Remember how you've always told me of your ideals? You were always mine. But it seems like the ruler of this prison has confused you. Don't worry, I'll free you from this curse soon.\n\"Pierce him through, Soulforge.\"",
-      "skill_text": "<b><color=Keyword>Bane</color></b>\n<hr><ev><b><color=Keyword>Evolve</color></b>: Banish all copies of <b><i><color=Keyword>Cutthroat, Fluxblade Convict</color></i></b> from your deck. Then, if there are no duplicates in your deck, gain <b><i>Crest: Cutthroat, Fluxblade Convict</i></b>.</ev>",
-      "card_image_hash": "f3b5e86a14224f00b9992714d96c1a4e",
-      "card_banner_image_hash": "a978d809ed0f4d33ac9e96ed4ce47a97"
-    },
-    "style_card_list": [
-      {
-        "hash": "99bb8a5212734fad8b2508f604ce45b9",
-        "evo_hash": "a3b1033d99b548b0a2506b23156929d0",
-        "name": "",
-        "name_ruby": "",
-        "cv": "",
-        "illustrator": "Yanagawa",
-        "skill_text": "",
-        "flavour_text": "\"You're much faster, Cutty, so I'll let you handle it.\"\n\"It's just like you to have a perfect plan even I can't grasp.\"\n\"I know you'll pave a path for us, no matter the odds.\"\n\"A brilliant mind surrounded by scrap... I'll do what I want then.\"",
-        "evo_flavour_text": "Gathering under the blade, the renegades took up arms against tyranny. But the scraps knew not of the blade's true aim, and the blade was ignorant of familial hatred. When the dust of their uprising settles, will a society without rulers await... or the reunion of two brothers who remain a cut above the rest?"
-      }
-    ],
-    "related_card_ids": [
-      10974110
-    ],
-    "specific_effect_card_ids": [
-      10974112
-    ],
-    "specific_effects": [
-      {
-        "specific_effect_card_id": 10974112,
-        "specific_effect_type": 1,
-        "cost": 0,
-        "skill_text": "Once on each of your turns, when you play a follower, evolve it."
-      }
-    ]
-  },
   "10172310": {
     "common": {
       "card_id": 10172310,
@@ -19986,8 +19996,8 @@
       "name_ruby": "Whirlpool Gunner",
       "base_card_id": 10922110,
       "card_resource_id": 109221100,
-      "atk": 3,
-      "life": 1,
+      "atk": 4,
+      "life": 2,
       "flavour_text": "A skilled navigator. A seasoned cook. A shrewd negotiator. A cunning tactician. As the ship became more cramped, so too did my world expand. And in that ever-growing world, I met the love of my life, and our daughter was born.\n—<i>Hall of Virtue: Memories of an Enforcer</i>, Part 3",
       "skill_text": "<b><color=Keyword>Fanfare</color></b>: Summon a <b><i><color=Keyword>Dread Pirate's Flag</color></i></b>. Add a <b><i><color=Keyword>Gilded Goblet</color></i></b> to your hand.\n<hr><b><color=Keyword>Rush</color></b>",
       "card_set_id": 10009,
@@ -20004,7 +20014,7 @@
       "is_token": false,
       "is_include_rotation": true,
       "deck_enabled_num": 3,
-      "card_image_hash": "85bab94a6b3b4710820c9a015624a590",
+      "card_image_hash": "55894f550dbc4a89a40fc553c3d5c757",
       "card_banner_image_hash": "136bd73c56044a3da9afa0572528dc11",
       "original_card_id": null,
       "is_starter_ability_changed": false,
@@ -20014,7 +20024,7 @@
       "card_resource_id": 109221101,
       "flavour_text": "My freedom granted me true happiness. I knew then that I had to share this gift with my daughter. \n\"Live free, Barbaros. For both of us!\"\n—<i>Hall of Virtue: Memories of an Enforcer</i>, Part 4",
       "skill_text": "<b><color=Keyword>Fanfare</color></b>: Summon a <b><i><color=Keyword>Dread Pirate's Flag</color></i></b>. Add a <b><i><color=Keyword>Gilded Goblet</color></i></b> to your hand.\n<hr><b><color=Keyword>Rush</color></b>",
-      "card_image_hash": "839e9fda1b0a4b5a80bdc4205b6037bf",
+      "card_image_hash": "b7121dc96f4145f4bbb60b1358089bdd",
       "card_banner_image_hash": "23b1d55120174cd9b5b3773e1e3b3fc3"
     },
     "style_card_list": [],
@@ -21386,45 +21396,6 @@
     "evo": [],
     "style_card_list": [],
     "related_card_ids": [],
-    "specific_effect_card_ids": [],
-    "specific_effects": []
-  },
-  "10633310": {
-    "common": {
-      "card_id": 10633310,
-      "name": "Bewitching Eld Crystals",
-      "name_ruby": "Bewitching Eld Crystals",
-      "base_card_id": 10633310,
-      "card_resource_id": 106333100,
-      "atk": 0,
-      "life": 0,
-      "flavour_text": "Today, this town will lose seven souls. Two to old age, three to accidents, one to murder... And one to the Eld Crystals, her heart reaved to ruin. Not that she understands that yet, though. No one will so much as notice.",
-      "skill_text": "Select a <b><color=Keyword>Mode</color></b> to activate.\n<ridx=0>1. Summon a <b><i><color=Keyword>Crystalspawn</color></i></b> and give it +1/+0 and <b><color=Keyword>Storm</color></b>.</ridx>\n<ridx=1>2. Summon 2 copies of <b><i><color=Keyword>Crystalspawn</color></i></b> and give them +1/+0.</ridx>\n<b><color=Keyword>Enhance</color> (5)</b>: Activate all of them instead.",
-      "card_set_id": 10006,
-      "type": 4,
-      "class": 3,
-      "tribes": [
-        19
-      ],
-      "cost": 3,
-      "rarity": 3,
-      "cv": "Molly Zhang / Micah Solusod",
-      "illustrator": "irua",
-      "questions": [],
-      "is_token": false,
-      "is_include_rotation": true,
-      "deck_enabled_num": 3,
-      "card_image_hash": "764f44953fb84b098358c88c2d8ac048",
-      "card_banner_image_hash": "041c006e58f84f548c5e27b0c9e069f6",
-      "original_card_id": null,
-      "is_starter_ability_changed": false,
-      "cv_jp": "前田佳織里/鳥海浩輔"
-    },
-    "evo": [],
-    "style_card_list": [],
-    "related_card_ids": [
-      10631110
-    ],
     "specific_effect_card_ids": [],
     "specific_effects": []
   },
@@ -25256,6 +25227,43 @@
     "specific_effect_card_ids": [],
     "specific_effects": []
   },
+  "10973310": {
+    "common": {
+      "card_id": 10973310,
+      "name": "Soulforge",
+      "name_ruby": "Soulforge",
+      "base_card_id": 10973310,
+      "card_resource_id": 109733100,
+      "atk": 0,
+      "life": 0,
+      "flavour_text": "\"Come to your senses, brother. I've already slain the ruler of this prison.\"\n\"Usurping again? Don't you ever get tired?\"\n\"It's not like you to be a pawn. Aren't you supposed to be a leader?\"\n\"...Silence. That's enough from you, scum!\"",
+      "skill_text": "Select an enemy follower on the field and destroy it. If there are no duplicates in your deck, destroy all enemy followers instead.",
+      "card_set_id": 10009,
+      "type": 4,
+      "class": 7,
+      "tribes": [
+        0
+      ],
+      "cost": 3,
+      "rarity": 3,
+      "cv": "Lucien Dodge",
+      "illustrator": "Kinako Kuromitsu",
+      "questions": [],
+      "is_token": false,
+      "is_include_rotation": true,
+      "deck_enabled_num": 3,
+      "card_image_hash": "f4dd984661344080bf27d990193e588a",
+      "card_banner_image_hash": "c05d7e994a5c4c2c8a9c110f6fd5827c",
+      "original_card_id": null,
+      "is_starter_ability_changed": false,
+      "cv_jp": "花江夏樹"
+    },
+    "evo": [],
+    "style_card_list": [],
+    "related_card_ids": [],
+    "specific_effect_card_ids": [],
+    "specific_effects": []
+  },
   "10001130": {
     "common": {
       "card_id": 10001130,
@@ -28225,6 +28233,45 @@
     "evo": [],
     "style_card_list": [],
     "related_card_ids": [],
+    "specific_effect_card_ids": [],
+    "specific_effects": []
+  },
+  "10633310": {
+    "common": {
+      "card_id": 10633310,
+      "name": "Bewitching Eld Crystals",
+      "name_ruby": "Bewitching Eld Crystals",
+      "base_card_id": 10633310,
+      "card_resource_id": 106333100,
+      "atk": 0,
+      "life": 0,
+      "flavour_text": "Today, this town will lose seven souls. Two to old age, three to accidents, one to murder... And one to the Eld Crystals, her heart reaved to ruin. Not that she understands that yet, though. No one will so much as notice.",
+      "skill_text": "Select a <b><color=Keyword>Mode</color></b> to activate.\n<ridx=0>1. Summon a <b><i><color=Keyword>Crystalspawn</color></i></b> and give it +1/+0 and <b><color=Keyword>Storm</color></b>.</ridx>\n<ridx=1>2. Summon 2 copies of <b><i><color=Keyword>Crystalspawn</color></i></b> and give them +1/+0.</ridx>\n<b><color=Keyword>Enhance</color> (6)</b>: Activate all of them instead.",
+      "card_set_id": 10006,
+      "type": 4,
+      "class": 3,
+      "tribes": [
+        19
+      ],
+      "cost": 4,
+      "rarity": 3,
+      "cv": "Molly Zhang / Micah Solusod",
+      "illustrator": "irua",
+      "questions": [],
+      "is_token": false,
+      "is_include_rotation": true,
+      "deck_enabled_num": 3,
+      "card_image_hash": "96fb69d318204d569e4aae67eaadffca",
+      "card_banner_image_hash": "041c006e58f84f548c5e27b0c9e069f6",
+      "original_card_id": null,
+      "is_starter_ability_changed": false,
+      "cv_jp": "前田佳織里/鳥海浩輔"
+    },
+    "evo": [],
+    "style_card_list": [],
+    "related_card_ids": [
+      10631110
+    ],
     "specific_effect_card_ids": [],
     "specific_effects": []
   },
@@ -31504,43 +31551,6 @@
     "related_card_ids": [
       90071110
     ],
-    "specific_effect_card_ids": [],
-    "specific_effects": []
-  },
-  "10973310": {
-    "common": {
-      "card_id": 10973310,
-      "name": "Soulforge",
-      "name_ruby": "Soulforge",
-      "base_card_id": 10973310,
-      "card_resource_id": 109733100,
-      "atk": 0,
-      "life": 0,
-      "flavour_text": "\"Come to your senses, brother. I've already slain the ruler of this prison.\"\n\"Usurping again? Don't you ever get tired?\"\n\"It's not like you to be a pawn. Aren't you supposed to be a leader?\"\n\"...Silence. That's enough from you, scum!\"",
-      "skill_text": "Select an enemy follower on the field and destroy it. If there are no duplicates in your deck, destroy all enemy followers instead.",
-      "card_set_id": 10009,
-      "type": 4,
-      "class": 7,
-      "tribes": [
-        0
-      ],
-      "cost": 4,
-      "rarity": 3,
-      "cv": "Lucien Dodge",
-      "illustrator": "Kinako Kuromitsu",
-      "questions": [],
-      "is_token": false,
-      "is_include_rotation": true,
-      "deck_enabled_num": 3,
-      "card_image_hash": "2f1c143b11514b87b5518018be4ee27d",
-      "card_banner_image_hash": "c05d7e994a5c4c2c8a9c110f6fd5827c",
-      "original_card_id": null,
-      "is_starter_ability_changed": false,
-      "cv_jp": "花江夏樹"
-    },
-    "evo": [],
-    "style_card_list": [],
-    "related_card_ids": [],
     "specific_effect_card_ids": [],
     "specific_effects": []
   },
@@ -37788,6 +37798,61 @@
     "specific_effect_card_ids": [],
     "specific_effects": []
   },
+  "10423110": {
+    "common": {
+      "card_id": 10423110,
+      "name": "Golden Knight, True King's Blade",
+      "name_ruby": "Golden Knight, True King's Blade",
+      "base_card_id": 10423110,
+      "card_resource_id": 104231100,
+      "atk": 6,
+      "life": 6,
+      "flavour_text": "I have pledged my unyielding loyalty to His Majesty, and yet, why does he keep me in the dark? Why does he treat me as nothing more than a mere pawn? Did I do something wrong?",
+      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Select a <b><color=Keyword>Mode</color></b> to activate.\n<ridx=0>1. Super-evolve this follower.</ridx>\n<ridx=1>2. Deal 4 damage to all enemy followers.</ridx>\n<ridx=2>3. Restore 4 defense to your leader.</ridx>\n<b><color=Keyword>Enhance</color> (8)</b>: Activate all of them instead.",
+      "card_set_id": 10004,
+      "type": 1,
+      "class": 2,
+      "tribes": [
+        0
+      ],
+      "cost": 6,
+      "rarity": 3,
+      "cv": "Leona Renee",
+      "illustrator": "",
+      "questions": [],
+      "is_token": false,
+      "is_include_rotation": true,
+      "deck_enabled_num": 3,
+      "card_image_hash": "d102345dc38a48828e1774a56efee228",
+      "card_banner_image_hash": "ee5cf722ffcb488e9e51d27c4312a567",
+      "original_card_id": null,
+      "is_starter_ability_changed": false,
+      "cv_jp": "茅野愛衣"
+    },
+    "evo": {
+      "card_resource_id": 104231101,
+      "flavour_text": "I wish for the kingdom to prosper, but not in the way the True King decrees. His methodology has made me take stock of myself. I won't lose my station as the Golden Knight ever again.",
+      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Select a <b><color=Keyword>Mode</color></b> to activate.\n<ridx=0>1. Super-evolve this follower.</ridx>\n<ridx=1>2. Deal 4 damage to all enemy followers.</ridx>\n<ridx=2>3. Restore 4 defense to your leader.</ridx>\n<b><color=Keyword>Enhance</color> (8)</b>: Activate all of them instead.",
+      "card_image_hash": "3b23ece538064303926ac8ae1a83ca52",
+      "card_banner_image_hash": "e5330df4af60431280bfaf6daa0c6b02"
+    },
+    "style_card_list": [
+      {
+        "hash": "d3fcda4e15fe40f68f689a6a0b3bc1f9",
+        "evo_hash": "71b0e3317dc04fe9b0fedd0e4d9c66f9",
+        "name": "",
+        "name_ruby": "",
+        "cv": "",
+        "illustrator": "",
+        "skill_text": "",
+        "flavour_text": "If I am to stand beside the new king, should I not don regal vestments matching my liege? Heh, I jest, but I did need a change of clothes. Rest assured, my blade is just as lethal, regardless of my attire.",
+        "evo_flavour_text": "Even if I am not a wife in name, I am still considered family. Deep down, I think I was still happy with that, which is why I want to reciprocate their kindness."
+      }
+    ],
+    "related_card_ids": [],
+    "specific_effect_card_ids": [],
+    "specific_effects": []
+  },
   "10521110": {
     "common": {
       "card_id": 10521110,
@@ -40480,7 +40545,19 @@
       "cv_jp": "石田彰"
     },
     "evo": [],
-    "style_card_list": [],
+    "style_card_list": [
+      {
+        "hash": "cc4d22a909b84270ba58a0d94aae77d1",
+        "evo_hash": "",
+        "name": "",
+        "name_ruby": "",
+        "cv": "",
+        "illustrator": "Kinako Kuromitsu",
+        "skill_text": "",
+        "flavour_text": "\"I no longer care for anything. The tiresome shackles, the worthless promises... even you. I once regarded you as my wings, but no more.\"\n\"Indulge me, then. I swore that I'd be by your side until death tears us apart, so allow me to fulfill my promise... with your last rites!\"",
+        "evo_flavour_text": ""
+      }
+    ],
     "related_card_ids": [],
     "specific_effect_card_ids": [],
     "specific_effects": []
@@ -42004,61 +42081,6 @@
     "related_card_ids": [
       90021110
     ],
-    "specific_effect_card_ids": [],
-    "specific_effects": []
-  },
-  "10423110": {
-    "common": {
-      "card_id": 10423110,
-      "name": "Golden Knight, True King's Blade",
-      "name_ruby": "Golden Knight, True King's Blade",
-      "base_card_id": 10423110,
-      "card_resource_id": 104231100,
-      "atk": 6,
-      "life": 6,
-      "flavour_text": "I have pledged my unyielding loyalty to His Majesty, and yet, why does he keep me in the dark? Why does he treat me as nothing more than a mere pawn? Did I do something wrong?",
-      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Select a <b><color=Keyword>Mode</color></b> to activate.\n<ridx=0>1. Super-evolve this follower.</ridx>\n<ridx=1>2. Deal 4 damage to all enemy followers.</ridx>\n<ridx=2>3. Restore 4 defense to your leader.</ridx>\n<b><color=Keyword>Enhance</color> (9)</b>: Activate all of them instead.",
-      "card_set_id": 10004,
-      "type": 1,
-      "class": 2,
-      "tribes": [
-        0
-      ],
-      "cost": 7,
-      "rarity": 3,
-      "cv": "Leona Renee",
-      "illustrator": "",
-      "questions": [],
-      "is_token": false,
-      "is_include_rotation": true,
-      "deck_enabled_num": 3,
-      "card_image_hash": "8b44a488ca684f538b8216f09b060bca",
-      "card_banner_image_hash": "ee5cf722ffcb488e9e51d27c4312a567",
-      "original_card_id": null,
-      "is_starter_ability_changed": false,
-      "cv_jp": "茅野愛衣"
-    },
-    "evo": {
-      "card_resource_id": 104231101,
-      "flavour_text": "I wish for the kingdom to prosper, but not in the way the True King decrees. His methodology has made me take stock of myself. I won't lose my station as the Golden Knight ever again.",
-      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Select a <b><color=Keyword>Mode</color></b> to activate.\n<ridx=0>1. Super-evolve this follower.</ridx>\n<ridx=1>2. Deal 4 damage to all enemy followers.</ridx>\n<ridx=2>3. Restore 4 defense to your leader.</ridx>\n<b><color=Keyword>Enhance</color> (9)</b>: Activate all of them instead.",
-      "card_image_hash": "ca4a40e9e5e544359cd34a7c66a676c7",
-      "card_banner_image_hash": "e5330df4af60431280bfaf6daa0c6b02"
-    },
-    "style_card_list": [
-      {
-        "hash": "782d628705f04362b98ab3b0b59b5abe",
-        "evo_hash": "f1783077292447689b2630eda59e7537",
-        "name": "",
-        "name_ruby": "",
-        "cv": "",
-        "illustrator": "",
-        "skill_text": "",
-        "flavour_text": "If I am to stand beside the new king, should I not don regal vestments matching my liege? Heh, I jest, but I did need a change of clothes. Rest assured, my blade is just as lethal, regardless of my attire.",
-        "evo_flavour_text": "Even if I am not a wife in name, I am still considered family. Deep down, I think I was still happy with that, which is why I want to reciprocate their kindness."
-      }
-    ],
-    "related_card_ids": [],
     "specific_effect_card_ids": [],
     "specific_effects": []
   },
