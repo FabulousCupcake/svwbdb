@@ -40317,7 +40317,19 @@
       "card_image_hash": "4a21239bf0684be98ef592f422dafcb5",
       "card_banner_image_hash": "8c7388c65fc84c8aba598dce6eadcb24"
     },
-    "style_card_list": [],
+    "style_card_list": [
+      {
+        "hash": "c3885814215a40499d892e8fc5ec1d02",
+        "evo_hash": "585a9845ac554155a97bc0bbf77cbb21",
+        "name": "",
+        "name_ruby": "",
+        "cv": "",
+        "illustrator": "Yanagawa",
+        "skill_text": "",
+        "flavour_text": "Reuniting with his dearest friend stirred long-forgotten memories within the convict, calling to mind those days he spent connecting with the rulers of the criminal underworld. His friend's smile and promise to become his one and only wings had made the convict's heart flutter. That was how it all began.",
+        "evo_flavour_text": "His dearest friend, who pledged to become his wings, was the first person the convict ever wanted to trust. With his friend at his back, he hoped that he could fly from his treacherous world. But with hope came hideous obsession, and the promise he clung to became his shackles. That was how his sins began."
+      }
+    ],
     "related_card_ids": [],
     "specific_effect_card_ids": [
       10964112
@@ -43416,7 +43428,19 @@
       "card_image_hash": "de30272cfcab4bf695e53e39e428b979",
       "card_banner_image_hash": "992169063f0e47a1b3b97e7f1295dee2"
     },
-    "style_card_list": [],
+    "style_card_list": [
+      {
+        "hash": "03e03118c4d147afa50f505e971e349e",
+        "evo_hash": "c24eaa933db54acd9a9a8d7be58370c3",
+        "name": "Antemaria, Piercing Nostalgia",
+        "name_ruby": "Antemaria, Piercing Nostalgia",
+        "cv": "",
+        "illustrator": "",
+        "skill_text": "",
+        "flavour_text": "I used to think that it's best to run solo. That way, you'd get all of the spoils. But it always felt like something was missing, and that emptiness would keep me up at night. Then she appeared in my life. It was incredible—even though she took half the loot, I felt fuller than before.",
+        "evo_flavour_text": "With her, even making mistakes felt fun, 'cause she'd always pick up my slack. And that's when I got it. She was the \"something\" that'd been missing from me all this time. With that mystery solved and my emptiness filled, I was finally able to sleep at night."
+      }
+    ],
     "related_card_ids": [],
     "specific_effect_card_ids": [],
     "specific_effects": []
