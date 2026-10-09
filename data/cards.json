@@ -19253,7 +19253,19 @@
       "card_image_hash": "3d3a166f377b4dc9bfc9051da405cf7f",
       "card_banner_image_hash": "a1d6542c33e643119b5d93c6c8c696f0"
     },
-    "style_card_list": [],
+    "style_card_list": [
+      {
+        "hash": "7f06f838c52441c6a1f7a1c4bd141e8b",
+        "evo_hash": "22f5101f806744679329827faffc0ec0",
+        "name": "Carefree Caramelos",
+        "name_ruby": "Carefree Caramelos",
+        "cv": "",
+        "illustrator": "Tatsuyaki",
+        "skill_text": "",
+        "flavour_text": "Their sweet smiles will melt your heart like the caramel their coats evoke. Even the sternest of faces can't help but smile when met with their gaze.",
+        "evo_flavour_text": "The setting sun only draws more attention to their bright smiles. Even in the darkest of nights, these stars of the town can light up the world."
+      }
+    ],
     "related_card_ids": [
       10121140
     ],
