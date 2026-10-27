@@ -29,6 +29,12 @@ while (( OFFSET < TOTAL_COUNT )); do
         --output "$OUTPUT_FILE" \
         "$BASE_URL"
 
+    if jq -e '.data_headers.result_code == 90000 or (.maintenance | type == "object")' "$OUTPUT_FILE" > /dev/null; then
+        printf 'Download failed: the official card API is under maintenance. Try again later.\n' >&2
+        printf '### Game data download failed\n\nThe official card API is under maintenance. Try again later.\n' >> "${GITHUB_STEP_SUMMARY:-/dev/null}" || true
+        exit 1
+    fi
+
     printf 'Downloading Japanese voice credits at offset %d to %s\n' \
         "$OFFSET" "${JAPANESE_OUTPUT_FILE##*/}"
 
@@ -42,6 +48,12 @@ while (( OFFSET < TOTAL_COUNT )); do
         --data-urlencode "offset=$OFFSET" \
         --output "$JAPANESE_OUTPUT_FILE" \
         "$BASE_URL"
+
+    if jq -e '.data_headers.result_code == 90000 or (.maintenance | type == "object")' "$JAPANESE_OUTPUT_FILE" > /dev/null; then
+        printf 'Download failed: the official card API is under maintenance. Try again later.\n' >&2
+        printf '### Game data download failed\n\nThe official card API is under maintenance. Try again later.\n' >> "${GITHUB_STEP_SUMMARY:-/dev/null}" || true
+        exit 1
+    fi
 
     PAGE_COUNT="$(jq -er '.data.sort_card_id_list | length' "$OUTPUT_FILE")"
     TOTAL_COUNT="$(jq -er '.data.count' "$OUTPUT_FILE")"
