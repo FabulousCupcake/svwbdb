@@ -7,6 +7,10 @@ on:
 
 permissions:
   contents: write
+  actions: write
+
+env:
+  GH_TOKEN: ${{ github.token }}
 
 concurrency:
   group: update-game-data
@@ -47,3 +51,6 @@ jobs:
           git add data/cards.json data/card-sets.json data/keywords.json data/traits.json
           git commit -m "Update game data ($TIMESTAMP)"
           git push origin HEAD:master
+
+          sleep 5
+          gh workflow run push-deploy-pages.yml --repo "$GITHUB_REPOSITORY" --ref master
