@@ -5356,7 +5356,7 @@
       "atk": 0,
       "life": 0,
       "flavour_text": "Only the goddess knew when she would perform the Ritual of Rebirth. Does that suggest she informed the angels of when it would be?\n—The Nocturne Dossier, file 5",
-      "skill_text": "Deal X damage to all enemy followers. X is the number of clues you have. Banish all Clue amulets from the field.",
+      "skill_text": "Deal X damage to all enemy followers. X is the number of clues you have. Banish all allied Clue amulets from the field.",
       "card_set_id": 10010,
       "type": 4,
       "class": 5,
