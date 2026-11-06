@@ -50789,7 +50789,19 @@
       "card_image_hash": "5bc35db9d298493a8892730c38fd5db0",
       "card_banner_image_hash": "3d573b87aae64ec6a8c4ed3104acdc23"
     },
-    "style_card_list": [],
+    "style_card_list": [
+      {
+        "hash": "dee16d352b6743fb97042b434025aed7",
+        "evo_hash": "a22a0eaaab504aecb5a6d195cf6489be",
+        "name": "Godzilla",
+        "name_ruby": "Godzilla",
+        "cv": "",
+        "illustrator": "Tatsuyaki",
+        "skill_text": "",
+        "flavour_text": "War reduced Japan to zero, and Godzilla plunged it into minus.",
+        "evo_flavour_text": "There is no third time. Everything ends here."
+      }
+    ],
     "related_card_ids": [],
     "specific_effect_card_ids": [],
     "specific_effects": []
@@ -52094,7 +52106,19 @@
       "card_image_hash": "62565df46a3d4728be5be03e4f44cb28",
       "card_banner_image_hash": "4eb89ab472564ae2a1d2325568644ba7"
     },
-    "style_card_list": [],
+    "style_card_list": [
+      {
+        "hash": "6392afbafd824c2a97c3b880e01e2b75",
+        "evo_hash": "73c9acc8e0384b76bcae7aa686b44d86",
+        "name": "King Ghidorah",
+        "name_ruby": "King Ghidorah",
+        "cv": "-",
+        "illustrator": "Tatsuyaki",
+        "skill_text": "",
+        "flavour_text": "The country has faced agonizing struggles to achieve recovery and finally reclaim its daily life. Yet, just as humanity managed to cling to a hard-won peace, a new threat strikes, crushing hope in an instant.",
+        "evo_flavour_text": "Returning to zero is not an option—not for our crime and punishment."
+      }
+    ],
     "related_card_ids": [],
     "specific_effect_card_ids": [],
     "specific_effects": []
