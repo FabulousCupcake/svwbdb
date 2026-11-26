@@ -1040,7 +1040,19 @@
       "cv_jp": ""
     },
     "evo": [],
-    "style_card_list": [],
+    "style_card_list": [
+      {
+        "hash": "eb7e4449273f46a0a691bce55a775e58",
+        "evo_hash": "",
+        "name": "",
+        "name_ruby": "",
+        "cv": "Emily Sun / Risa Mei / Mick Lauer",
+        "illustrator": "ezusuke",
+        "skill_text": "",
+        "flavour_text": "\"Why'd we have to come this way? I'm scared of heeeights!\"\n\"Oh em gee! Everything here is sooo sticker-able! My collection's gonna look amazing!\"\n\"Now, now. What sort of neighbors would we be if we didn't give them a proper greeting? There'll be plenty of time to enjoy ourselves later.\"",
+        "evo_flavour_text": ""
+      }
+    ],
     "related_card_ids": [
       90001210
     ],
@@ -6546,7 +6558,7 @@
       "card_resource_id": 108711300,
       "atk": 1,
       "life": 1,
-      "flavour_text": "Unwanted due to his unusual blood, his early years were spent in solitude. Yet salvation appeared. “Mother” accepted him, and freed him from the shackles of loneliness with unconditional love.\n\"Get rid of anyone in our way, right? Leave it to me, Mother!\"",
+      "flavour_text": "Unwanted due to his unusual blood, his early years were spent in solitude. Yet salvation appeared. \"Mother\" accepted him, and freed him from the shackles of loneliness with unconditional love.\n\"Get rid of anyone in our way, right? Leave it to me, Mother!\"",
       "skill_text": "<b><color=Keyword>Fanfare</color></b>: Add a copy of a random allied Artifact follower destroyed this match to your hand without revealing it.",
       "card_set_id": 10008,
       "type": 1,
@@ -6570,7 +6582,7 @@
     },
     "evo": {
       "card_resource_id": 108711301,
-      "flavour_text": "He doesn't know that only his blood held value to her. He cannot even imagine the truth of the origins that bind his fate. When her merciless blade flashes, will he finally realize the love he feels is nothing but a lie?\n“I've done a good job, haven't I, Mother? Mother?\"",
+      "flavour_text": "He doesn't know that only his blood held value to her. He cannot even imagine the truth of the origins that bind his fate. When her merciless blade flashes, will he finally realize the love he feels is nothing but a lie?\n\"I've done a good job, haven't I, Mother? Mother?\"",
       "skill_text": "<b><color=Keyword>Fanfare</color></b>: Add a copy of a random allied Artifact follower destroyed this match to your hand without revealing it.",
       "card_image_hash": "d00a76afa2b148fd8b0bfbf506208df7",
       "card_banner_image_hash": "f07c7039a8ef4af8b37f5728d6916538"
@@ -9378,7 +9390,7 @@
       "atk": 1,
       "life": 1,
       "flavour_text": "The noble thing to do is concede victory. Draw the Old Maid and end the game! But would you believe wisdom from the mouth of a jester? Maybe there <i>is</i> a way to come out on top, with no one on the bottom. After all, the world's topsy-turvy and straight is curvy!",
-      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Give this follower +X/+X. X is your <b><color=Keyword>Combo</color></b>.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Discard your hand. Add an exact copy each of 5 random cards in your opponent's deck to your hand without revealing them.</ev>",
+      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Give this follower +X/+X. X is your <b><color=Keyword>Combo</color></b>.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Discard your hand. Add an exact copy each of 6 random cards in your opponent's deck to your hand without revealing them.</ev>\n<sev><b><color=Keyword>Super-Evolve</color></b>: Reduce their costs by 1.</sev>",
       "card_set_id": 10005,
       "type": 1,
       "class": 1,
@@ -9402,7 +9414,7 @@
     "evo": {
       "card_resource_id": 105141101,
       "flavour_text": "Topsy-turvy, straight is curvy! Lose, and be celebrated as a martyr; win, and be reviled as a tyrant! There's your paradox from the mouth of a sage. The cunning thing to do is seize defeat.",
-      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Give this follower +X/+X. X is your <b><color=Keyword>Combo</color></b>.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Discard your hand. Add an exact copy each of 5 random cards in your opponent's deck to your hand without revealing them.</ev>",
+      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Give this follower +X/+X. X is your <b><color=Keyword>Combo</color></b>.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Discard your hand. Add an exact copy each of 6 random cards in your opponent's deck to your hand without revealing them.</ev>\n<sev><b><color=Keyword>Super-Evolve</color></b>: Reduce their costs by 1.</sev>",
       "card_image_hash": "d1988a93583d4abca72bb8747ac0ca0e",
       "card_banner_image_hash": "4fda7ea94b1046018d7ed0b1825d60e6"
     },
@@ -9665,7 +9677,7 @@
     },
     "evo": {
       "card_resource_id": 900141101,
-      "flavour_text": "Only the malcontents notice that the Crystal Palace has no rear gate. When they do, they also notice the presence of a gatekeeper who should not exist. But it is already too late.\n“Those who cannot enter from the front have no right to enter the Crystal Palace.”",
+      "flavour_text": "Only the malcontents notice that the Crystal Palace has no rear gate. When they do, they also notice the presence of a gatekeeper who should not exist. But it is already too late.\n\"Those who cannot enter from the front have no right to enter the Crystal Palace.\"",
       "skill_text": "<b><color=Keyword>Storm</color></b>\n<b><color=Keyword>Ward</color></b>",
       "card_image_hash": "dc72e06e68254dd18c4b47caaf08a6e6",
       "card_banner_image_hash": "9bcc26a1e20348a29c85934bdccfdc7c"
@@ -21210,7 +21222,7 @@
     },
     "evo": {
       "card_resource_id": 108231101,
-      "flavour_text": "Patrol complete. Nothing better than a town so peaceful it's boring. Seeing as there’s nothing else going on, I think I'll take a dango break. Time to test my new triple skewer technique!",
+      "flavour_text": "Patrol complete. Nothing better than a town so peaceful it's boring. Seeing as there's nothing else going on, I think I'll take a dango break. Time to test my new triple skewer technique!",
       "skill_text": "<b><color=Keyword>Fanfare</color></b>: If you've unlocked super-evolution, evolve this follower.\n<hr><b><color=Keyword>Rush</color></b>\n<b><color=Keyword>Follower</color></b> <b><color=Keyword>Strike</color></b>: Do this 1 time: \"Deal 3 damage to the opposing follower.\" If this follower is evolved, do it 3 times instead.",
       "card_image_hash": "cf5b940e4bc7423caa90da0312116f2d",
       "card_banner_image_hash": "d3d2290221cd4295b1323c0d7e4b9efd"
@@ -21377,7 +21389,7 @@
       "card_resource_id": 900211300,
       "atk": 4,
       "life": 4,
-      "flavour_text": "WANTED: NAHTNAUGHT’S THUGS\nBounty: 5,000 gold per head\nOffenses: Organizing crime, attacking saloons\nNotes: Have standard uniform, look mean as hell",
+      "flavour_text": "WANTED: NAHTNAUGHT'S THUGS\nBounty: 5,000 gold per head\nOffenses: Organizing crime, attacking saloons\nNotes: Have standard uniforms, look mean as hell",
       "skill_text": "",
       "card_set_id": 90000,
       "type": 1,
@@ -23275,7 +23287,7 @@
       "atk": 1,
       "life": 2,
       "flavour_text": "<i>Yawn...</i> I'm Yube, Crestpetal of the Flower Kami. I can teach you a game that'll bring you sweet dreams, so let's play until we fall asleep.\n—<i>Games with Crestpetal</i>, No. 6",
-      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Summon a <b><i><color=Keyword>Majestic Megalorca</color></i></b>.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Select a card in your hand and discard it. Gain <b><i>Crest: Yube, Crestpetal</i></b>.</ev>",
+      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Summon a <b><i><color=Keyword>Majestic Megalorca</color></i></b>.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Select a card in your hand and discard it. Gain 1 max play point. Gain <b><i>Crest: Yube, Crestpetal</i></b>.</ev>",
       "card_set_id": 10005,
       "type": 1,
       "class": 4,
@@ -23299,7 +23311,7 @@
     "evo": {
       "card_resource_id": 105441201,
       "flavour_text": "All I want is for everyone to have sweet dreams. And to do that, we have to keep on playing games. Mhm... Talking about dreams has gotten me all sleepy too...\n—<i>Games with Crestpetal</i>, No. 7",
-      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Summon a <b><i><color=Keyword>Majestic Megalorca</color></i></b>.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Select a card in your hand and discard it. Gain <b><i>Crest: Yube, Crestpetal</i></b>.</ev>",
+      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Summon a <b><i><color=Keyword>Majestic Megalorca</color></i></b>.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Select a card in your hand and discard it. Gain 1 max play point. Gain <b><i>Crest: Yube, Crestpetal</i></b>.</ev>",
       "card_image_hash": "b6a5be49d5df4eecaeedd4cf5afb427a",
       "card_banner_image_hash": "0a90ba5ad2d642e08b91639b3819f966"
     },
@@ -28097,7 +28109,7 @@
       "card_resource_id": 108121200,
       "atk": 3,
       "life": 4,
-      "flavour_text": "Touch me. Become one with me. That's what I'd want, if I were poisonous no more. Break her bonds. Save her from the torment of reading minds. Someday, I want to hold someone, and be held in return. I want the same for you, Michelle. Someday, we’ll surely both be free.",
+      "flavour_text": "Touch me. Become one with me. That's what I'd want, if I were poisonous no more. Break her bonds. Save her from the torment of reading minds. Someday, I want to hold someone, and be held in return. I want the same for you, Michelle. Someday, we'll surely both be free.",
       "skill_text": "<b><color=Keyword>Fanfare</color></b>: Summon a <b><i><color=Keyword>Michelle, Kind Mindreader</color></i></b>.\n<hr><b><color=Keyword>Rush</color></b>\n<b><color=Keyword>Bane</color></b>",
       "card_set_id": 10008,
       "type": 1,
@@ -30902,10 +30914,10 @@
       "name_ruby": "Obliviationist Mugger",
       "base_card_id": 11043110,
       "card_resource_id": 110431100,
-      "atk": 3,
-      "life": 3,
+      "atk": 4,
+      "life": 4,
       "flavour_text": "After further testimony from the birds and flowers on the extent of Leizaut's abilities, Nosche knew how to avoid her gaze. She had to burrow herself into a tunnel underground, as Leizaut can only see what goes on aboveground.\n—Nosche's case files, page 4",
-      "skill_text": "<b><color=Keyword>Fanfare</color></b>: If you have a Clue amulet in your hand, discard a random Clue amulet and gain 1 max play point.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Select an enemy follower on the field and deal it 3 damage.</ev>",
+      "skill_text": "<b><color=Keyword>Fanfare</color></b>: If you have a Clue amulet in your hand, discard a random Clue amulet and gain 1 max play point.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Select an enemy follower on the field and deal it 4 damage.</ev>",
       "card_set_id": 10010,
       "type": 1,
       "class": 4,
@@ -30920,7 +30932,7 @@
       "is_token": false,
       "is_include_rotation": true,
       "deck_enabled_num": 3,
-      "card_image_hash": "dce72428c19f459aa4f2ca62a9a5e144",
+      "card_image_hash": "7b62f3e8895d4455b9c3f859992be5b2",
       "card_banner_image_hash": "c6314e7416de40b0ac8a2cf50062f2a3",
       "original_card_id": null,
       "is_starter_ability_changed": false,
@@ -30929,11 +30941,23 @@
     "evo": {
       "card_resource_id": 110431101,
       "flavour_text": "WEATHER MODDING RAMPS UP AS NIGHT VANISHES\nAuthorities say production has begun on artificial twilight. It follows other recreations of lightning, rain, rainbows, and starlight. At this rate, our skies will soon be more machine than nature...\n―<i>The Nacreheim Times</i>, front page",
-      "skill_text": "<b><color=Keyword>Fanfare</color></b>: If you have a Clue amulet in your hand, discard a random Clue amulet and gain 1 max play point.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Select an enemy follower on the field and deal it 3 damage.</ev>",
-      "card_image_hash": "a23384ee18c44068b500ee12f7816c17",
+      "skill_text": "<b><color=Keyword>Fanfare</color></b>: If you have a Clue amulet in your hand, discard a random Clue amulet and gain 1 max play point.\n<hr><ev><b><color=Keyword>Evolve</color></b>: Select an enemy follower on the field and deal it 4 damage.</ev>",
+      "card_image_hash": "a61a3a14944043f6a86aaeba596bec15",
       "card_banner_image_hash": "5f77232ebe314ff4b8b5d4dc560ed307"
     },
-    "style_card_list": [],
+    "style_card_list": [
+      {
+        "hash": "72c29997defc4d4ebda3dcfce37bec3d",
+        "evo_hash": "37184ee5d56146d78f8bf00a0cc07f65",
+        "name": "",
+        "name_ruby": "",
+        "cv": "Giselle Fernandez",
+        "illustrator": "uid",
+        "skill_text": "",
+        "flavour_text": "",
+        "evo_flavour_text": ""
+      }
+    ],
     "related_card_ids": [],
     "specific_effect_card_ids": [],
     "specific_effects": []
@@ -33469,7 +33493,7 @@
     },
     "evo": {
       "card_resource_id": 108721101,
-      "flavour_text": "Though she cherished life, she did not let the fear of death halt her steps, for her heavy heart taught her the weight of life.\n“The thought of wasting this life is far more terrifying than the thought of losing it.\"",
+      "flavour_text": "Though she cherished life, she did not let the fear of death halt her steps, for her heavy heart taught her the weight of life.\n\"The thought of wasting this life is far more terrifying than the thought of losing it.\"",
       "skill_text": "<b><color=Keyword>Rush</color></b>\n<b><color=Keyword>Last Words</color></b>: Add an <b><i><color=Keyword>Ancient Artifact</color></i></b> to your hand.",
       "card_image_hash": "f503463c23f84827a774da191fdad722",
       "card_banner_image_hash": "540153467e3742a58c7c67c2d661cb9f"
@@ -40901,6 +40925,83 @@
     "specific_effect_card_ids": [],
     "specific_effects": []
   },
+  "10734110": {
+    "common": {
+      "card_id": 10734110,
+      "name": "Lilanthim, Anathema of Predation",
+      "name_ruby": "Lilanthim, Anathema of Predation",
+      "base_card_id": 10734110,
+      "card_resource_id": 107341100,
+      "atk": 4,
+      "life": 4,
+      "flavour_text": "Why'd I become an Anathema? Hm... I'll tell you if you treat me to dinner! I'm a bit picky, but I'll still finish anything that's put in front of me. I was raised well, after all, and nothing beats a clean plate!",
+      "skill_text": "<b><color=Keyword>Fanfare</color></b>: <b><color=Keyword>Earth Rite</color> (1)</b> - Gain <b><i>Crest: Lilanthim, Anathema of Predation</i></b>.\n<hr><b><color=Keyword>Aura</color></b>\n<hr><ev><b><color=Keyword>Evolve</color></b>: <b><color=Keyword>Earth Rite</color> (1)</b> - Select an enemy follower on the field and destroy it.</ev>",
+      "card_set_id": 10007,
+      "type": 1,
+      "class": 3,
+      "tribes": [
+        20
+      ],
+      "cost": 6,
+      "rarity": 4,
+      "cv": "Kelsey Jaffer",
+      "illustrator": "HSN",
+      "questions": [],
+      "is_token": false,
+      "is_include_rotation": true,
+      "deck_enabled_num": 3,
+      "card_image_hash": "679a89024b0f42c4bfcb584a4cb15531",
+      "card_banner_image_hash": "7c66dc6f04c64857a132c3eee4d8af0b",
+      "original_card_id": null,
+      "is_starter_ability_changed": false,
+      "cv_jp": "岡咲美保"
+    },
+    "evo": {
+      "card_resource_id": 107341101,
+      "flavour_text": "I can't wait to go home. Once I do, I'm gonna give my sister dearest a biiig hug. Then we'll eat a big meal and drift off in the same bed, just like we used to! Hehe, yep! Soon we'll be together again! So gimme more assignments—I can't travel on an empty stomach!",
+      "skill_text": "<b><color=Keyword>Fanfare</color></b>: <b><color=Keyword>Earth Rite</color> (1)</b> - Gain <b><i>Crest: Lilanthim, Anathema of Predation</i></b>.\n<hr><b><color=Keyword>Aura</color></b>\n<hr><ev><b><color=Keyword>Evolve</color></b>: <b><color=Keyword>Earth Rite</color> (1)</b> - Select an enemy follower on the field and destroy it.</ev>",
+      "card_image_hash": "0110048e7e3a4ad490af6df985a0b7a2",
+      "card_banner_image_hash": "4d153cd1703348c6ac9205f81cb68c60"
+    },
+    "style_card_list": [
+      {
+        "hash": "d82a2a6f9b9e42a3997ce4f0d83274ee",
+        "evo_hash": "500a702ce8cb41f8bc0e6bc08492825d",
+        "name": "Lilanthim, Neon Nights",
+        "name_ruby": "Lilanthim, Neon Nights",
+        "cv": "",
+        "illustrator": "HSN",
+        "skill_text": "",
+        "flavour_text": "Nothing beats the heat like an ice-cold parfait! Ice cream, jelly, fruit—it's the perfect food! I can gobble them up all day long! Ahh, now this is living.",
+        "evo_flavour_text": "Then again, sweets all day can get a little dull. Variety is the spice of life, right? That reminds me, there's something I've been meaning to ask you. What do <i>you</i> taste like?"
+      },
+      {
+        "hash": "9c4074f68f16474f9640de42f67b973d",
+        "evo_hash": "f8d7279bbc064e8f808aa9886ebd69b3",
+        "name": "Lilanthim, Neon Nights",
+        "name_ruby": "Lilanthim, Neon Nights",
+        "cv": "",
+        "illustrator": "HSN",
+        "skill_text": "",
+        "flavour_text": "Nothing beats the heat like an ice-cold parfait! Ice cream, jelly, fruit—it's the perfect food! I can gobble them up all day long! Ahh, now this is living.",
+        "evo_flavour_text": "Then again, sweets all day can get a little dull. Variety is the spice of life, right? That reminds me, there's something I've been meaning to ask you. What do <i>you</i> taste like?"
+      }
+    ],
+    "related_card_ids": [
+      10734110
+    ],
+    "specific_effect_card_ids": [
+      10734112
+    ],
+    "specific_effects": [
+      {
+        "specific_effect_card_id": 10734112,
+        "specific_effect_type": 1,
+        "cost": 0,
+        "skill_text": "<b><color=Keyword>Countdown</color> (1)</b>\nAt the end of your opponent's turn, summon a <b><i><color=Keyword>Lilanthim, Anathema of Predation</color></i></b> and evolve it."
+      }
+    ]
+  },
   "10834110": {
     "common": {
       "card_id": 10834110,
@@ -45549,7 +45650,7 @@
       "atk": 4,
       "life": 4,
       "flavour_text": "Your indifference has doomed you. In time, humanity will use and abandon everything—then who will pull the green turf over your cold, dead body? You should be glad to shed your monstrous skin.\n—<i>Games with Dawnblossom</i>, No. 13",
-      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Summon 2 copies of <b><i><color=Keyword>Guardian Golem</color></i></b>.\n<hr>Whenever an allied Golem follower enters the field, <b><color=Keyword>Earth Rite</color> (1)</b> - Evolve it.",
+      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Summon 2 copies of <b><i><color=Keyword>Guardian Golem</color></i></b>.\n<hr>Whenever an allied Golem follower enters the field, <b><color=Keyword>Earth Rite</color> (1)</b> - Evolve it.\n<hr><sev><b><color=Keyword>Super-Evolve</color></b>: Select an allied Golem follower on the field and give it <b><color=Keyword>Storm</color></b>.</sev>",
       "card_set_id": 10005,
       "type": 1,
       "class": 3,
@@ -45573,7 +45674,7 @@
     "evo": {
       "card_resource_id": 105331101,
       "flavour_text": "None can know your future. When we reach that distant shore beyond the seven seas, we will be ■■■. Let the journey commence, pactbearer.\n—<i>Games with Dawnblossom</i>, No. 14: Lessons from the Fool",
-      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Summon 2 copies of <b><i><color=Keyword>Guardian Golem</color></i></b>.\n<hr>Whenever an allied Golem follower enters the field, <b><color=Keyword>Earth Rite</color> (1)</b> - Evolve it.",
+      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Summon 2 copies of <b><i><color=Keyword>Guardian Golem</color></i></b>.\n<hr>Whenever an allied Golem follower enters the field, <b><color=Keyword>Earth Rite</color> (1)</b> - Evolve it.\n<hr><sev><b><color=Keyword>Super-Evolve</color></b>: Select an allied Golem follower on the field and give it <b><color=Keyword>Storm</color></b>.</sev>",
       "card_image_hash": "245a21b0e41e4db38335d6f041650459",
       "card_banner_image_hash": "c8a453d9aafa41b1aac3ab7d7ef4542d"
     },
@@ -45583,83 +45684,6 @@
     ],
     "specific_effect_card_ids": [],
     "specific_effects": []
-  },
-  "10734110": {
-    "common": {
-      "card_id": 10734110,
-      "name": "Lilanthim, Anathema of Predation",
-      "name_ruby": "Lilanthim, Anathema of Predation",
-      "base_card_id": 10734110,
-      "card_resource_id": 107341100,
-      "atk": 4,
-      "life": 4,
-      "flavour_text": "Why'd I become an Anathema? Hm... I'll tell you if you treat me to dinner! I'm a bit picky, but I'll still finish anything that's put in front of me. I was raised well, after all, and nothing beats a clean plate!",
-      "skill_text": "<b><color=Keyword>Fanfare</color></b>: <b><color=Keyword>Earth Rite</color> (1)</b> - Gain <b><i>Crest: Lilanthim, Anathema of Predation</i></b>.\n<hr><b><color=Keyword>Aura</color></b>\n<hr><ev><b><color=Keyword>Evolve</color></b>: <b><color=Keyword>Earth Rite</color> (1)</b> - Select an enemy follower on the field and destroy it.</ev>",
-      "card_set_id": 10007,
-      "type": 1,
-      "class": 3,
-      "tribes": [
-        20
-      ],
-      "cost": 7,
-      "rarity": 4,
-      "cv": "Kelsey Jaffer",
-      "illustrator": "HSN",
-      "questions": [],
-      "is_token": false,
-      "is_include_rotation": true,
-      "deck_enabled_num": 3,
-      "card_image_hash": "2ccd2d0506204d1f8684827a658f5182",
-      "card_banner_image_hash": "7c66dc6f04c64857a132c3eee4d8af0b",
-      "original_card_id": null,
-      "is_starter_ability_changed": false,
-      "cv_jp": "岡咲美保"
-    },
-    "evo": {
-      "card_resource_id": 107341101,
-      "flavour_text": "I can't wait to go home. Once I do, I'm gonna give my sister dearest a biiig hug. Then we'll eat a big meal and drift off in the same bed, just like we used to! Hehe, yep! Soon we'll be together again! So gimme more assignments—I can't travel on an empty stomach!",
-      "skill_text": "<b><color=Keyword>Fanfare</color></b>: <b><color=Keyword>Earth Rite</color> (1)</b> - Gain <b><i>Crest: Lilanthim, Anathema of Predation</i></b>.\n<hr><b><color=Keyword>Aura</color></b>\n<hr><ev><b><color=Keyword>Evolve</color></b>: <b><color=Keyword>Earth Rite</color> (1)</b> - Select an enemy follower on the field and destroy it.</ev>",
-      "card_image_hash": "55246d721e1d40f0ae50624156358b30",
-      "card_banner_image_hash": "4d153cd1703348c6ac9205f81cb68c60"
-    },
-    "style_card_list": [
-      {
-        "hash": "42d28ce559f5475eb6aa5e32f1a6d183",
-        "evo_hash": "d0a38688a6a14c749cd3a6be1146126a",
-        "name": "Lilanthim, Neon Nights",
-        "name_ruby": "Lilanthim, Neon Nights",
-        "cv": "",
-        "illustrator": "HSN",
-        "skill_text": "",
-        "flavour_text": "Nothing beats the heat like an ice-cold parfait! Ice cream, jelly, fruit—it's the perfect food! I can gobble them up all day long! Ahh, now this is living.",
-        "evo_flavour_text": "Then again, sweets all day can get a little dull. Variety is the spice of life, right? That reminds me, there's something I've been meaning to ask you. What do <i>you</i> taste like?"
-      },
-      {
-        "hash": "1fabe0e0807a4873a989b3975a6d56b5",
-        "evo_hash": "4ca3c0ea7b3b440aa79ce32e8c120cd5",
-        "name": "Lilanthim, Neon Nights",
-        "name_ruby": "Lilanthim, Neon Nights",
-        "cv": "",
-        "illustrator": "HSN",
-        "skill_text": "",
-        "flavour_text": "Nothing beats the heat like an ice-cold parfait! Ice cream, jelly, fruit—it's the perfect food! I can gobble them up all day long! Ahh, now this is living.",
-        "evo_flavour_text": "Then again, sweets all day can get a little dull. Variety is the spice of life, right? That reminds me, there's something I've been meaning to ask you. What do <i>you</i> taste like?"
-      }
-    ],
-    "related_card_ids": [
-      10734110
-    ],
-    "specific_effect_card_ids": [
-      10734112
-    ],
-    "specific_effects": [
-      {
-        "specific_effect_card_id": 10734112,
-        "specific_effect_type": 1,
-        "cost": 0,
-        "skill_text": "<b><color=Keyword>Countdown</color> (1)</b>\nAt the end of your opponent's turn, summon a <b><i><color=Keyword>Lilanthim, Anathema of Predation</color></i></b> and evolve it."
-      }
-    ]
   },
   "10834120": {
     "common": {
@@ -51516,6 +51540,49 @@
     "specific_effect_card_ids": [],
     "specific_effects": []
   },
+  "10554120": {
+    "common": {
+      "card_id": 10554120,
+      "name": "Shakdoh, Nightblossom",
+      "name_ruby": "Shakdoh, Nightblossom",
+      "base_card_id": 10554120,
+      "card_resource_id": 105541200,
+      "atk": 4,
+      "life": 4,
+      "flavour_text": "Hail, player. I am Shakdoh, Nightblossom of the Flower Kami. If thou wouldst hone thy strength, challenge me to a game. Embrace adversity, for mighty is the flower that blooms in the dark.\n—<i>Games with Nightblossom</i>, No. 6",
+      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Do this 2 times: \"Return your hand to deck. Draw X cards. X is the number of cards you returned. Then, if you have at least 4 cards with the same cost in your hand, deal 4 damage to all enemies.\"\n<hr><sev><b><color=Keyword>Super-Evolve</color></b>: Replicate the effects of this card's <b><color=Keyword>Fanfare</color></b> ability.</sev>",
+      "card_set_id": 10005,
+      "type": 1,
+      "class": 5,
+      "tribes": [
+        0
+      ],
+      "cost": 9,
+      "rarity": 4,
+      "cv": "Phillip Sacramento",
+      "illustrator": "Budi",
+      "questions": [],
+      "is_token": false,
+      "is_include_rotation": true,
+      "deck_enabled_num": 3,
+      "card_image_hash": "6e889277e2594bbf924796e47a44a511",
+      "card_banner_image_hash": "2b808dac989044ba91fe59b616643219",
+      "original_card_id": null,
+      "is_starter_ability_changed": false,
+      "cv_jp": "安元洋貴"
+    },
+    "evo": {
+      "card_resource_id": 105541201,
+      "flavour_text": "I have already turned that previous misfortune into fuel for improvement. Improvement in games, though slow and steady, is what makes them worth playing. So, let us resume our match posthaste—on the highest difficulty, of course!\n—<i>Games with Nightblossom</i>, No. 7",
+      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Do this 2 times: \"Return your hand to deck. Draw X cards. X is the number of cards you returned. Then, if you have at least 4 cards with the same cost in your hand, deal 4 damage to all enemies.\"\n<hr><sev><b><color=Keyword>Super-Evolve</color></b>: Replicate the effects of this card's <b><color=Keyword>Fanfare</color></b> ability.</sev>",
+      "card_image_hash": "6a59a4320535419facd0da239fa2a77b",
+      "card_banner_image_hash": "04302db6043b4583bfb5730adfa583d9"
+    },
+    "style_card_list": [],
+    "related_card_ids": [],
+    "specific_effect_card_ids": [],
+    "specific_effects": []
+  },
   "10654110": {
     "common": {
       "card_id": 10654110,
@@ -51526,7 +51593,7 @@
       "atk": 10,
       "life": 10,
       "flavour_text": "Yeah, some people call me two-dimensional, and I'm not the smartest. But what can I say, dude—the universe loves me anyway 'cos I'm hot as hell! The encroachers wanted me for the same reason. I feel so blessed, man. I love you too, universe!",
-      "skill_text": "<b><color=Keyword>Aura</color></b>\nCan't be destroyed by abilities.\n<hr><b><color=Keyword>Clash</color></b>: Destroy the opposing follower.\n<hr><sev><b><color=Keyword>Super-Evolve</color></b>: Give this follower \"Can attack 3 times per turn.\"</sev>",
+      "skill_text": "<b><color=Keyword>Aura</color></b>\nCan't be destroyed by abilities.\n<b><color=Keyword>Clash</color></b>: Destroy the opposing follower.\n<hr><sev><b><color=Keyword>Super-Evolve</color></b>: Give this follower \"Can attack 3 times per turn.\"</sev>",
       "card_set_id": 10006,
       "type": 1,
       "class": 5,
@@ -51550,7 +51617,7 @@
     "evo": {
       "card_resource_id": 106541101,
       "flavour_text": "I don't vibe with the vision and these new eyes, kitty. What's the point of making something easy even easier? Eh, whatever. All I gotta do is destroy everything, right? No need to get hot under your fur. All I can do is win!",
-      "skill_text": "<b><color=Keyword>Aura</color></b>\nCan't be destroyed by abilities.\n<hr><b><color=Keyword>Clash</color></b>: Destroy the opposing follower.\n<hr><sev><b><color=Keyword>Super-Evolve</color></b>: Give this follower \"Can attack 3 times per turn.\"</sev>",
+      "skill_text": "<b><color=Keyword>Aura</color></b>\nCan't be destroyed by abilities.\n<b><color=Keyword>Clash</color></b>: Destroy the opposing follower.\n<hr><sev><b><color=Keyword>Super-Evolve</color></b>: Give this follower \"Can attack 3 times per turn.\"</sev>",
       "card_image_hash": "4c86915a951c4d00ade369b5e9059d79",
       "card_banner_image_hash": "46e73dde44c44c40b4a0b3260bcbe84e"
     },
@@ -52650,49 +52717,6 @@
       "skill_text": "<b><color=Keyword>Fanfare</color></b>: Banish all cards with base costs of 4 or less from your deck. Discard all Clue amulets. Do this X times: \"Deal 8 damage to a random enemy follower.\" X is the number of cards you discarded.\n<hr><b><color=Keyword>Storm</color></b>",
       "card_image_hash": "d1815c0b45ec4ff58a53eb2a7d677242",
       "card_banner_image_hash": "58633601c78c4aa4a7f6933df455e486"
-    },
-    "style_card_list": [],
-    "related_card_ids": [],
-    "specific_effect_card_ids": [],
-    "specific_effects": []
-  },
-  "10554120": {
-    "common": {
-      "card_id": 10554120,
-      "name": "Shakdoh, Nightblossom",
-      "name_ruby": "Shakdoh, Nightblossom",
-      "base_card_id": 10554120,
-      "card_resource_id": 105541200,
-      "atk": 4,
-      "life": 4,
-      "flavour_text": "Hail, player. I am Shakdoh, Nightblossom of the Flower Kami. If thou wouldst hone thy strength, challenge me to a game. Embrace adversity, for mighty is the flower that blooms in the dark.\n—<i>Games with Nightblossom</i>, No. 6",
-      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Do this 2 times: \"Return your hand to deck. Draw X cards. X is the number of cards you returned. Then, if you have at least 4 cards with the same cost in your hand, deal 4 damage to all enemies.\"\n<hr><sev><b><color=Keyword>Super-Evolve</color></b>: Replicate the effects of this card's <b><color=Keyword>Fanfare</color></b> ability.</sev>",
-      "card_set_id": 10005,
-      "type": 1,
-      "class": 5,
-      "tribes": [
-        0
-      ],
-      "cost": 10,
-      "rarity": 4,
-      "cv": "Phillip Sacramento",
-      "illustrator": "Budi",
-      "questions": [],
-      "is_token": false,
-      "is_include_rotation": true,
-      "deck_enabled_num": 3,
-      "card_image_hash": "ef029dbcaa664dcbb3bde3db25913e84",
-      "card_banner_image_hash": "2b808dac989044ba91fe59b616643219",
-      "original_card_id": null,
-      "is_starter_ability_changed": false,
-      "cv_jp": "安元洋貴"
-    },
-    "evo": {
-      "card_resource_id": 105541201,
-      "flavour_text": "I have already turned that previous misfortune into fuel for improvement. Improvement in games, though slow and steady, is what makes them worth playing. So, let us resume our match posthaste—on the highest difficulty, of course!\n—<i>Games with Nightblossom</i>, No. 7",
-      "skill_text": "<b><color=Keyword>Fanfare</color></b>: Do this 2 times: \"Return your hand to deck. Draw X cards. X is the number of cards you returned. Then, if you have at least 4 cards with the same cost in your hand, deal 4 damage to all enemies.\"\n<hr><sev><b><color=Keyword>Super-Evolve</color></b>: Replicate the effects of this card's <b><color=Keyword>Fanfare</color></b> ability.</sev>",
-      "card_image_hash": "906939cf8e9242b3ba941436479a9430",
-      "card_banner_image_hash": "04302db6043b4583bfb5730adfa583d9"
     },
     "style_card_list": [],
     "related_card_ids": [],
